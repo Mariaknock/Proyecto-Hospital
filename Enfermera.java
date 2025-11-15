@@ -1,7 +1,7 @@
 public class Enfermera extends Empleado {
 
-    public Enfermera(int idEmpleado,String nombre,String apellido,String area){
-        super(idEmpleado,nombre,apellido,area);
+    public Enfermera(int idEmpleado,String nombre,String apellido,String area,String turno){
+        super(idEmpleado,nombre,apellido,area,turno);
     }
 
     public void asistirPaciente(Paciente pacientePrueba){
