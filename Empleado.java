@@ -36,6 +36,22 @@ public class Empleado {
         return area;
     }
 
+    public void setNombre(String nombre){
+        this.nombre=nombre;
+    }
+
+    public void setApellido(String apellido){
+        this.apellido=apellido;
+    }
+
+    public void setidEmpleado(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
+    }
+
+    public void setArea(String area){
+        this.area=area;
+    }
+
 
 
 
