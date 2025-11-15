@@ -3,13 +3,14 @@ public class Empleado {
     private String apellido;
     private int idEmpleado;
     private String area;
+    private String turno;
     
-    public Empleado(int idEmpleado, String nombre, String apellido, String area){
+    public Empleado(int idEmpleado, String nombre, String apellido, String area,String turno){
         this.idEmpleado=idEmpleado;
         this.nombre= nombre;
         this.apellido= apellido;
         this.area= area;
-
+        this.turno=turno;
     }
 
 
@@ -17,6 +18,7 @@ public class Empleado {
         System.out.println("ID: " + idEmpleado);
         System.out.println("Nombre " + nombre + " " + apellido);
         System.out.println("Area: "+ area);
+        System.err.println("Turno: "+ turno);
 
     }
 
@@ -36,6 +38,10 @@ public class Empleado {
         return area;
     }
 
+    public String getTurno(){
+        return turno;
+    }
+
     public void setNombre(String nombre){
         this.nombre=nombre;
     }
@@ -50,6 +56,10 @@ public class Empleado {
 
     public void setArea(String area){
         this.area=area;
+    }
+
+    public void setTurno(String turno){
+        this.turno=turno;
     }
 
 
