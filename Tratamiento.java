@@ -10,6 +10,34 @@ public class Tratamiento {
     private List<Medicamento> medicamentosPrescritos;
     private String estado; 
 
+    
+    public Tratamiento(String diagnostico, LocalDate fechaDeInicio) {
+        this.diagnostico = diagnostico;
+        this.fechaDeInicio = fechaDeInicio;
+        this.medicamentosPrescritos = new ArrayList<>();
+        this.estado = "Tratamiento activo";
+    }
+
+    public void agregarMedicamento(Medicamento medicamento) {
+        this.medicamentosPrescritos.add(medicamento);
+        System.out.println("Medicamento agregado");
+    }
+
+    public void quitarMedicamento(Medicamento medicamento) {
+        this.medicamentosPrescritos.remove(medicamento);
+        System.out.println("Medicamento quitado");
+    }
+
+    public void marcarComoCompletado() {
+        this.estado = "Completado";
+        System.out.println("Tratamiento completado");
+    }
+
+    public void actualizarFechaDeFin(LocalDate fecha) {
+        this.fechaDeFin = fecha;
+        System.out.println("Fecha de fin actualizada");
+    }
+
     public String getDiagnostico() {
         return diagnostico;
     }
@@ -50,32 +78,5 @@ public class Tratamiento {
         this.estado = estado;
     }
 
-
-    public Tratamiento(String diagnostico, LocalDate fechaDeInicio) {
-        this.diagnostico = diagnostico;
-        this.fechaDeInicio = fechaDeInicio;
-        this.medicamentosPrescritos = new ArrayList<>();
-        this.estado = "Tratamiento activo";
-    }
-
-    public void agregarMedicamento(Medicamento medicamento) {
-        this.medicamentosPrescritos.add(medicamento);
-        System.out.println("Medicamento agregado");
-    }
-
-    public void quitarMedicamento(Medicamento medicamento) {
-        this.medicamentosPrescritos.remove(medicamento);
-        System.out.println("Medicamento quitado");
-    }
-
-    public void marcarComoCompletado() {
-        this.estado = "Completado";
-        System.out.println("Tratamiento completado");
-    }
-
-    public void actualizarFechaDeFin(LocalDate fecha) {
-        this.fechaDeFin = fecha;
-        System.out.println("Fecha de fin actualizada");
-    }
    
 }
