@@ -16,7 +16,7 @@ public class Agenda
     public void agregarCita(Cita cita)
     {
         agenda.add(cita);
-        System.out.println("Cita agregada exitosamenteee");
+        System.out.println("Cita agregada exitosamente");
     }
 
     public void eliminarCita(Cita cita)
