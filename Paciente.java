@@ -1,9 +1,12 @@
+import java.util.ArrayList;
+
 public class Paciente {
     private String id;
     private String nombre;
     private double altura;
     private double peso;
     private int edad;
+    private ArrayList<Cita> citasPaciente;
     private ExpedienteClinico expedienteMedico;
 
     public Paciente(String id, String nombre, double altura, double peso, int edad) {
@@ -13,6 +16,7 @@ public class Paciente {
         this.peso = peso;
         this.edad = edad;
         this.expedienteMedico = new ExpedienteClinico();
+        this.citasPaciente = new ArrayList<>();
     }
 
     // Getters y Setters
