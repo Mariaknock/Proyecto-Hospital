@@ -1,17 +1,19 @@
+package cita;
 public class Cita
 {
     private String nombrePaciente;
-    private String fecha;
+    private Fechamex fecha;
     private String hora;
     private double precio;
     
-    Cita(String nombrePaciente,String fecha,String hora, double precio)
+    Cita(String nombrePaciente,Fechamex fecha,String hora, double precio)
     {
         this.nombrePaciente=nombrePaciente;
         this.fecha=fecha;
         this.hora=hora;
         this.precio=precio;
     }
+
 
     public String getNombrePaciente()
     {
@@ -23,12 +25,12 @@ public class Cita
         this.nombrePaciente=nombrePaciente;
     }
 
-    public String getFecha()
+    public Fechamex getFecha()
     {
         return fecha;
     }
 
-    public void setFecha(String fecha)
+    public void setFecha(Fechamex fecha)
     {
         this.fecha=fecha;
     }

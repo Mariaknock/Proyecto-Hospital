@@ -15,9 +15,6 @@ public class Agenda
     }
 
 
-
-    
-
     public void agregarCita(Cita cita)
     {
         agenda.add(cita);
