@@ -1,11 +1,12 @@
 package cita;
-
 import java.time.LocalTime;
 import java.util.Scanner;
 import crud.CRUD;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-public class Agenda implements CRUD
+import paciente.Paciente;
+
+public class Agenda implements CRUD<Paciente>
 {
     private Scanner scanner;
     private ArrayList<Cita> agenda;
@@ -20,7 +21,7 @@ public class Agenda implements CRUD
     }
 
     @Override
-    public void crearInstancia(){
+    public void crearInstancia(ArrayList<Paciente> pacientes){
         String nombrePaciente;
         int dia;
         int mes;
@@ -28,11 +29,34 @@ public class Agenda implements CRUD
         int horas;
         int minutos;
         double precio;
+        int idPaciente;
 
         System.out.println("\n=== CREAR NUEVA CITA ===");
 
         try{
 
+            System.out.println("Ingrese el ID del paciente");
+            idPaciente=scanner.nextInt();
+            scanner.nextLine();
+
+            if(idPaciente<0)
+            {
+                throw new ConfiguracionInvalida("El ID del paciente no puede ser un numero negativo");
+            }
+
+            Paciente pacienteEncontrado = null;
+            for (Paciente paciente : pacientes) {
+                if (paciente.getId() ==idPaciente) {
+                    pacienteEncontrado = paciente;
+                    break;
+                }
+            }
+
+            if (pacienteEncontrado == null) {
+                throw new ConfiguracionInvalida("No se encontró un paciente con ID: " + idPaciente);
+            }
+
+           
             System.out.print("Ingrese el nombre del paciente: ");
             nombrePaciente = scanner.nextLine();
 
@@ -98,7 +122,7 @@ public class Agenda implements CRUD
 
             Fechamex fecha = new Fechamex(dia, mes, año, 0, 0);
             LocalTime hora= LocalTime.of(horas, minutos);
-            Cita nuevaCita= new Cita(nombrePaciente, fecha, hora, precio);
+            Cita nuevaCita= new Cita(nombrePaciente, fecha, hora, precio,idPaciente);
             agenda.add(nuevaCita);
             System.out.println("Cita de "+ nombrePaciente + " Agregada exitosamente");
 
@@ -124,8 +148,6 @@ public class Agenda implements CRUD
 
     @Override
     public void actualizarInstancia(){
-
-        try{
             String nombrePaciente;
             int dia;
             int mes;
@@ -133,7 +155,6 @@ public class Agenda implements CRUD
             int horas;
             int minutos;
             double precio;
-
             System.out.println("\n¿Qué campo deseas modificar?");
             System.out.println("1. Nombre del paciente");
             System.out.println("2. Fecha de la cita");
@@ -141,6 +162,7 @@ public class Agenda implements CRUD
             System.out.println("4. Precio de la cita");
             System.out.print("Selecciona una opción: ");
 
+        try{
             int opcion = scanner.nextInt();
             scanner.nextLine();
 
@@ -216,12 +238,6 @@ public class Agenda implements CRUD
             System.out.println("Error de usuario, no se permiten agregar letras en los campos numericos");
         }
     }
-
-
-
-
-
-
 
     @Override
     public void eliminarInstancia(){}

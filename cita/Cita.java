@@ -6,13 +6,15 @@ public class Cita
     private Fechamex fecha;
     private LocalTime hora;
     private double precio;
+    private int idPaciente;
     
-    Cita(String nombrePaciente,Fechamex fecha,LocalTime hora, double precio)
+    Cita(String nombrePaciente,Fechamex fecha,LocalTime hora, double precio, int idPaciente)
     {
         this.nombrePaciente=nombrePaciente;
         this.fecha=fecha;
         this.hora=hora;
         this.precio=precio;
+        this.idPaciente=idPaciente;
     }
 
 
@@ -56,6 +58,13 @@ public class Cita
         this.precio=precio;
     }
 
+    public int getIdPaciente()
+    {
+        return idPaciente;
+    }
+
+    //no se puede modificar el ID del paciente
+
     @Override
     public String toString()
     {
@@ -63,7 +72,8 @@ public class Cita
         +"Nombre del paciente: " + getNombrePaciente()+"\n"
         +"Fecha: " +getFecha()+"\n"
         +"Hora: "+ getHora() + "\n"
-        +"Precio: "+getPrecio()+" pesos mexicanos" + "\n";
+        +"Precio: "+getPrecio()+" pesos mexicanos" + "\n"
+        +"ID del paciente: "+ getIdPaciente()+"\n";
     }
 
 }

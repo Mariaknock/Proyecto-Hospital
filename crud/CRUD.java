@@ -1,9 +1,9 @@
 package crud;
-public interface CRUD {
+import java.util.ArrayList;
 
-    public void crearInstancia();
+public interface CRUD<T> {
+    public void crearInstancia(ArrayList<T> elementos);
     public void verElementos();
     public void actualizarInstancia();
     public void eliminarInstancia();
-    
-} 
+}

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import cita.Cita;
 
 public class Paciente {
-    private String id;
+    private int id;
     private String nombre;
     private double altura;
     private double peso;
@@ -12,7 +12,7 @@ public class Paciente {
     private ArrayList<Cita> citasPaciente;
     private ExpedienteClinico expedienteMedico;
 
-    public Paciente(String id, String nombre, double altura, double peso, int edad) {
+    public Paciente(int id, String nombre, double altura, double peso, int edad) {
         this.id = id;
         this.nombre = nombre;
         this.altura = altura;
@@ -22,12 +22,13 @@ public class Paciente {
         this.citasPaciente = new ArrayList<>();
     }
 
+
     // Getters y Setters
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
