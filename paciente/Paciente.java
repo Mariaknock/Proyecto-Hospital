@@ -66,10 +66,16 @@ public class Paciente {
     public ExpedienteClinico getExpedienteMedico() {
         return expedienteMedico;
     }
-
     public void setExpedienteMedico(ExpedienteClinico expedienteMedico) {
         this.expedienteMedico = expedienteMedico;
     }
+    public ArrayList<Cita> getCitasPaciente() {
+        return citasPaciente;
+    }
+    public void setCitasPaciente(ArrayList<Cita> citasPaciente) {
+        this.citasPaciente = citasPaciente;
+    }
+
 
     // Método para calcular IMC
     public double calcularIMC() {
