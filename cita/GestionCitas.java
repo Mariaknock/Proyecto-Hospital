@@ -59,6 +59,8 @@ public class GestionCitas implements CRUD
 
         Cita nuevaCita= new Cita(nombrePaciente, fecha, hora, precio);
         agenda.agregarCita(nuevaCita);
+
+        System.out.println("Cita de "+ nombrePaciente + " Agregada exitosamente");
     }
 
 
