@@ -17,6 +17,7 @@ public class Agenda
 
     public void agregarCita(Cita cita)
     {
+        
         agenda.add(cita);
         System.out.println("Cita agregada exitosamente");
     }
@@ -44,15 +45,4 @@ public class Agenda
         }
     }
 
-
-    
-
-    /*
-    Idea en desarrollo
-    public void verCitasDesdeCalendario()
-    {
-
-    }
-
-    */
 }
