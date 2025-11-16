@@ -1,3 +1,4 @@
+package inventario;
 public class Medicamento {
 
 
@@ -54,5 +55,12 @@ public class Medicamento {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+    
+    public void mostrarInformacion(){
+        System.out.println("Nombre " + nombre );
+        System.out.println("Presemtacion : "+ presentacion);
+        System.err.println("Dosis " + dosis);
+
     }
 }

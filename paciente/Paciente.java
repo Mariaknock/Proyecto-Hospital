@@ -1,9 +1,15 @@
+package paciente;
+import java.util.ArrayList;
+
+import cita.Cita;
+
 public class Paciente {
     private String id;
     private String nombre;
     private double altura;
     private double peso;
     private int edad;
+    private ArrayList<Cita> citasPaciente;
     private ExpedienteClinico expedienteMedico;
 
     public Paciente(String id, String nombre, double altura, double peso, int edad) {
@@ -13,6 +19,7 @@ public class Paciente {
         this.peso = peso;
         this.edad = edad;
         this.expedienteMedico = new ExpedienteClinico();
+        this.citasPaciente = new ArrayList<>();
     }
 
     // Getters y Setters
@@ -59,10 +66,16 @@ public class Paciente {
     public ExpedienteClinico getExpedienteMedico() {
         return expedienteMedico;
     }
-
     public void setExpedienteMedico(ExpedienteClinico expedienteMedico) {
         this.expedienteMedico = expedienteMedico;
     }
+    public ArrayList<Cita> getCitasPaciente() {
+        return citasPaciente;
+    }
+    public void setCitasPaciente(ArrayList<Cita> citasPaciente) {
+        this.citasPaciente = citasPaciente;
+    }
+
 
     // Método para calcular IMC
     public double calcularIMC() {

@@ -1,4 +1,3 @@
-import java.time.LocalDateTime;
 public class Cita
 {
     private String nombrePaciente;
