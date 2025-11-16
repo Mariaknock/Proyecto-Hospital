@@ -39,11 +39,11 @@ public class MenuAdmin {
                 
                 
             } catch (NumberFormatException e) {
-                System.out.println("No ingresaste un numero, intenta de nuevo");
+                System.out.println("No ingresaste un numero, intenta otra vez");
             }
 
 
-        }while(opcion!=4);
+        }while(opcion!=6);
     }
     
 }
