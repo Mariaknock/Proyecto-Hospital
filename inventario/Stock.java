@@ -1,3 +1,4 @@
+package inventario;
 public class Stock {
     
     private Medicamento medicamento;

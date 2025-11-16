@@ -1,3 +1,4 @@
+package inventario;
 public class Medicamento {
 
 

@@ -1,4 +1,7 @@
+package empleado;
 import java.util.ArrayList;
+
+import paciente.Paciente;
 
 public class Medico extends Empleado {
     private String cedula;
@@ -6,8 +9,8 @@ public class Medico extends Empleado {
     private int consultorio;
     private ArrayList<Paciente> pacientesAtendidos;
 
-    public Medico(String nombre, String apellido, int idPaciente, String area){
-        super(nombre, apellido, idPaciente, area);
+    public Medico(int idEmpleado, String nombre, String apellido, String area,String turno){
+        super(idEmpleado, nombre, apellido, area, turno);
         this.pacientesAtendidos = new ArrayList<>();
     }
 

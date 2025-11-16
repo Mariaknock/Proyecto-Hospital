@@ -1,3 +1,4 @@
+package empleado;
 public class Recepcionista extends Empleado {
 
     public Recepcionista (int idEmpleado,String nombre,String apellido,String area,String turno){

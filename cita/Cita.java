@@ -1,3 +1,4 @@
+package cita;
 public class Cita
 {
     private String nombrePaciente;

@@ -1,4 +1,7 @@
+package paciente;
 import java.util.ArrayList;
+
+import cita.Cita;
 
 public class Paciente {
     private String id;

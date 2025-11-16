@@ -1,3 +1,6 @@
+package empleado;
+import paciente.Paciente;
+
 public class Enfermera extends Empleado {
 
     public Enfermera(int idEmpleado,String nombre,String apellido,String area,String turno){

@@ -1,6 +1,9 @@
+package paciente;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import inventario.Medicamento;
 
 public class Tratamiento {
 

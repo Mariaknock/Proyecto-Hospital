@@ -1,3 +1,4 @@
+package inventario;
 import java.util.ArrayList;
 import java.util.List;
 
