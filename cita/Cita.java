@@ -1,12 +1,13 @@
 package cita;
+import java.time.LocalTime;
 public class Cita
 {
     private String nombrePaciente;
     private Fechamex fecha;
-    private String hora;
+    private LocalTime hora;
     private double precio;
     
-    Cita(String nombrePaciente,Fechamex fecha,String hora, double precio)
+    Cita(String nombrePaciente,Fechamex fecha,LocalTime hora, double precio)
     {
         this.nombrePaciente=nombrePaciente;
         this.fecha=fecha;
@@ -35,12 +36,12 @@ public class Cita
         this.fecha=fecha;
     }
 
-    public String getHora()
+    public LocalTime getHora()
     {
         return hora;
     }
 
-    public void setHora(String hora)
+    public void setHora(LocalTime hora)
     {
         this.hora=hora;
     }
