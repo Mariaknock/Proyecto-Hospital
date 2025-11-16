@@ -1,6 +1,8 @@
 package habitacion;
 
-public class Habitacion {
+import java.io.Serializable;
+
+public class Habitacion implements Serializable{
     private int numeroHabitacion;
     private int cantidadCamas;
     private int aforoActual;
@@ -29,5 +31,9 @@ public class Habitacion {
     public void setNumeroHabitacion(int numeroHabitacion) {
         this.numeroHabitacion = numeroHabitacion;
     }
-
+    public String toString() {
+        return "Habitación " + numeroHabitacion + 
+               " - Camas: " + cantidadCamas + 
+               " - Aforo: " + aforoActual;
+    }
 }

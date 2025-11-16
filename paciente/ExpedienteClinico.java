@@ -2,7 +2,7 @@ package paciente;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExpedienteClinico {
+public class ExpedienteClinico {    
     private List<String> historialVacunas;
     private List<String> antecedentesFamiliares;
     private List<String> enfermedadesPrevias;
@@ -98,7 +98,6 @@ public class ExpedienteClinico {
         System.out.println("Cita previa '" + cita + "' agregada");
     }
 
-    
 
     public String toString() {
         return "ExpedienteClinico{" +

@@ -67,9 +67,6 @@ public class Paciente {
     public ExpedienteClinico getExpedienteMedico() {
         return expedienteMedico;
     }
-    public void setExpedienteMedico(ExpedienteClinico expedienteMedico) {
-        this.expedienteMedico = expedienteMedico;
-    }
     public ArrayList<Cita> getCitasPaciente() {
         return citasPaciente;
     }
@@ -83,7 +80,6 @@ public class Paciente {
         return peso / (altura * altura);
     }
 
-    @Override
     public String toString() {
         return "Paciente{" +
                 "id='" + id + '\'' +
