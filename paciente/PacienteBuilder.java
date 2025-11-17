@@ -10,7 +10,6 @@ public class PacienteBuilder {
     private double peso;
     private int edad;
     private ArrayList<Cita> citasPaciente;
-    private ExpedienteClinico expedienteMedico;
 
     public PacienteBuilder(int id, String nombre) {
         this.id = id;
@@ -19,7 +18,6 @@ public class PacienteBuilder {
         this.peso = 0.0;
         this.edad = 0;
         this.citasPaciente = new ArrayList<>();
-        this.expedienteMedico = new ExpedienteClinico();
     }
 
     public PacienteBuilder altura(double altura) {
@@ -48,11 +46,6 @@ public class PacienteBuilder {
 
     public PacienteBuilder citasPaciente(ArrayList<Cita> citas) {
         this.citasPaciente = citas != null ? new ArrayList<>(citas) : new ArrayList<>();
-        return this;
-    }
-
-    public PacienteBuilder expedienteMedico(ExpedienteClinico expediente) {
-        this.expedienteMedico = expediente != null ? expediente : new ExpedienteClinico();
         return this;
     }
 
