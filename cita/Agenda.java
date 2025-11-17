@@ -7,6 +7,7 @@ import java.util.InputMismatchException;
 import paciente.Paciente;
 
 public class Agenda implements CRUD<Paciente>
+
 {
     private Scanner scanner;
     private ArrayList<Cita> agenda;
