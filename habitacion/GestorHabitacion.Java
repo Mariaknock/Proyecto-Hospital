@@ -43,7 +43,7 @@ public class GestorHabitacion {
             
             
         } catch (IOException e) {
-            System.err.println("✗ Error al guardar: " + e.getMessage());
+            System.err.println("Error al guardar: " + e.getMessage());
         }
     }
     @SuppressWarnings("unchecked")
@@ -65,7 +65,6 @@ public class GestorHabitacion {
     }
     
     public static void main(String[] args) {
-        
         System.out.println("=== GENERANDO Y GUARDANDO HABITACIONES ===");
         habitaciones = generarHabitaciones();
         guardarEnArchivo();
@@ -74,8 +73,6 @@ public class GestorHabitacion {
         for(Habitacion habitacion : habitaciones){
             System.out.println(habitacion);
         }
-
-      
     }
     
     public static void mostrarEstadisticas() {

@@ -1,9 +1,10 @@
 package paciente;
 import java.util.ArrayList;
+import java.io.Serializable;
 
 import cita.Cita;
 
-public class Paciente {
+public class Paciente implements Serializable{
     private int id;
     private String nombre;
     private double altura;
@@ -23,7 +24,6 @@ public class Paciente {
     }
 
 
-    // Getters y Setters
     public int getId() {
         return id;
     }
@@ -75,7 +75,6 @@ public class Paciente {
     }
 
 
-    // Método para calcular IMC
     public double calcularIMC() {
         return peso / (altura * altura);
     }
@@ -84,8 +83,8 @@ public class Paciente {
         return "Paciente{" +
                 "id='" + id + '\'' +
                 ", nombre='" + nombre + '\'' +
-                ", altura=" + altura +
-                ", peso=" + peso +
+                ", altura=" + String.format("%.2f", altura) +
+                ", peso=" + String.format("%.2f", peso) +
                 ", edad=" + edad +
                 ", IMC=" + String.format("%.2f", calcularIMC()) +
                 '}';
