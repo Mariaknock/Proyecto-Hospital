@@ -6,9 +6,12 @@ import java.util.Random;
 
 public class GestorHabitacion {
     
-    private String archivoBinario = "habitaciones.dat";
-    private ArrayList<Habitacion> habitaciones = new ArrayList<>();
+    private static String archivoBinario = "habitaciones.dat";
+    private static ArrayList<Habitacion> habitaciones = new ArrayList<>();
 
+    public static ArrayList<Habitacion> getHabitaciones(){
+        return habitaciones;
+    }
 
     public static ArrayList<Habitacion> generarHabitaciones() {
         Random random = new Random();
@@ -33,7 +36,7 @@ public class GestorHabitacion {
     
     public static void guardarEnArchivo() {
         try (ObjectOutputStream oos = new ObjectOutputStream(
-                new FileOutputStream(nombreArchivo))) {
+                new FileOutputStream(archivoBinario))) {
             
             oos.writeObject(habitaciones);
             System.out.println(habitaciones.size() + " habitaciones guardadas ");
@@ -43,18 +46,18 @@ public class GestorHabitacion {
             System.err.println("✗ Error al guardar: " + e.getMessage());
         }
     }
-    
+    @SuppressWarnings("unchecked")
     public static ArrayList<Habitacion> cargarDesdeArchivo() {
         ArrayList<Habitacion> habitaciones = null;
         
         try (ObjectInputStream ois = new ObjectInputStream(
-                new FileInputStream(nombreArchivo))) {
+                new FileInputStream(archivoBinario))) {
             
             habitaciones = (ArrayList<Habitacion>) ois.readObject();
-            System.out.println(habitaciones.size() + " habitaciones cargadas desde: " + nombreArchivo);
+            System.out.println(habitaciones.size() + " habitaciones cargadas");
             
         } catch (IOException | ClassNotFoundException e) {
-            System.err.println("✗ Error al cargar: " + e.getMessage());
+            System.err.println("Error al cargar: " + e.getMessage());
             habitaciones = new ArrayList<>();
         }
         
@@ -64,16 +67,22 @@ public class GestorHabitacion {
     public static void main(String[] args) {
         
         System.out.println("=== GENERANDO Y GUARDANDO HABITACIONES ===");
-        ArrayList<Habitacion> habitaciones = generarHabitaciones();
-        guardarEnBinario(habitaciones, archivoBinario);
-        
+        habitaciones = generarHabitaciones();
+        guardarEnArchivo();
+        cargarDesdeArchivo();
+        mostrarEstadisticas();
+        for(Habitacion habitacion : habitaciones){
+            System.out.println(habitacion);
+        }
+
       
     }
     
-    public static void mostrarEstadisticas(ArrayList<Habitacion> habitaciones) {
+    public static void mostrarEstadisticas() {
         int totalCamas = 0;
         int totalOcupadas = 0;
         int habitacionesLibres = 0;
+        int habitacionesOcupadas = 0;
         int habitacionesCompletas = 0;
         
         for (Habitacion h : habitaciones) {
@@ -84,6 +93,8 @@ public class GestorHabitacion {
                 habitacionesLibres++;
             } else if (h.getAforoActual() == h.getCantidadCamas()) {
                 habitacionesCompletas++;
+            } else{
+                habitacionesOcupadas++;
             }
         }
         
@@ -91,6 +102,7 @@ public class GestorHabitacion {
         System.out.println("Total de camas: " + totalCamas);
         System.out.println("Camas ocupadas: " + totalOcupadas);
         System.out.println("Habitaciones libres: " + habitacionesLibres);
+        System.out.println("Habitaciones incompletas: " + habitacionesOcupadas);
         System.out.println("Habitaciones completas: " + habitacionesCompletas);
         System.out.printf("Tasa de ocupación: %.2f%%\n", 
                          (totalOcupadas * 100.0 / totalCamas));
