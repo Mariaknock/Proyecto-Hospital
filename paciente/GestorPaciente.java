@@ -124,11 +124,11 @@ public class GestorPaciente {
         return pacientes;
     }
 
+    /* 
     public static void main(String[] args) {
         System.out.println("=== GENERANDO Y GUARDANDO PACIENTES ===");
-        pacientes = generarPacientes();
-        guardarEnArchivo();
-        cargarDesdeArchivo();
+
+        pacientes = cargarDesdeArchivo();
         for(Paciente paciente : pacientes){
             System.out.println(paciente);
             System.out.println(paciente.getExpedienteMedico());
@@ -136,4 +136,5 @@ public class GestorPaciente {
 
         }
     }
+    */
 }
