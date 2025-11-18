@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 
 import cita.Cita;
+import inventario.Medicamento;
 
 public class Paciente implements Serializable{
     private int id;
@@ -101,4 +102,30 @@ public class Paciente implements Serializable{
                 ", IMC=" + String.format("%.2f", calcularIMC()) +
                 '}';
     }
+
+
+    public void verTratamientos() {
+
+        if (getTratamientos().isEmpty()) {
+            System.out.println("El paciente no tiene tratamientos registrados");
+            return;
+        }
+        for (Tratamiento t : getTratamientos()) {
+
+            System.out.println("Diagnostico: " + t.getDiagnostico());
+            System.out.println("Fecha de inicio: " + t.getFechaDeInicio());
+            System.out.println("Estado: " + t.getEstado());
+            System.out.println("Medicamentos recetados:");
+            if (t.getMedicamentosPrescritos().isEmpty()) {
+                System.out.println(" No hay medicamentos recetados");
+            } else {
+                for (Medicamento m : t.getMedicamentosPrescritos()) {
+                    System.out.println(m.getNombre());
+                }
+            }
+    }
+}
+
+    
+
 }

@@ -95,6 +95,17 @@ public class Inventario {
     
     }
 
+    public void verInventario() {
 
+        if (getCatalogoDeMedicamentos().isEmpty()) {
+            System.out.println("El inventario esta vacio");
+            return;
+        }
+
+        for (Medicamento m : getCatalogoDeMedicamentos()) {
+            int cantidad = verificarStock(m);
+            System.out.println(m.getNombre() + " Stock de: " + cantidad);
+        }
+    }
     
 }
