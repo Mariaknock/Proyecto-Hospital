@@ -114,7 +114,7 @@ public class Agenda
 
             }
 
-            Fechamex fecha = new Fechamex(dia, mes, año, 0, 0);
+            Fechamex fecha = new Fechamex(dia, mes, año);
             LocalTime hora= LocalTime.of(horas, minutos);
             Cita nuevaCita= new Cita(pacienteEncontrado.getNombre(), fecha, hora, precio,idPaciente);
 
@@ -247,7 +247,7 @@ public class Agenda
                         throw new ConfiguracionInvalida("Año debe estar entre 2024-2100");
                     }
 
-                    Fechamex nuevaFecha= new Fechamex(dia, mes, año, 0, 0);
+                    Fechamex nuevaFecha= new Fechamex(dia, mes, año);
                     modificacionCita.setFecha(nuevaFecha);
                     System.out.println("Fecha actualizada correctamente");
                     
@@ -267,7 +267,7 @@ public class Agenda
                     if (minutos < 0 || minutos > 59) {
                         throw new ConfiguracionInvalida("Minutos deben estar entre 0-59");
                     }
-                    LocalTime nuevaHora=LocalTime.of(opcion, minutos);
+                    LocalTime nuevaHora=LocalTime.of(horas, minutos);
                     modificacionCita.setHora(nuevaHora);
                     System.out.println("Hora actualizada correctamente");
                     break;
@@ -297,15 +297,7 @@ public class Agenda
         }
     }
 
-    public void eliminarCita(
-        
-    ){}
-
-
-
-
-
-
+    public void eliminarCita(){}
 
 
     public Cita buscarCitaPorNombre(String nombrePaciente) {
