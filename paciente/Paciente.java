@@ -1,6 +1,8 @@
 package paciente;
 import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
+
 
 import cita.Cita;
 
@@ -12,6 +14,7 @@ public class Paciente implements Serializable{
     private int edad;
     private ArrayList<Cita> citasPaciente;
     private ExpedienteClinico expedienteMedico;
+    private ArrayList<Tratamiento> tratamientos;
 
     public Paciente(int id, String nombre, double altura, double peso, int edad) {
         this.id = id;
@@ -21,6 +24,7 @@ public class Paciente implements Serializable{
         this.edad = edad;
         this.expedienteMedico = new ExpedienteClinico();
         this.citasPaciente = new ArrayList<>();
+        this.tratamientos=new ArrayList<>();
     }
 
 
@@ -62,6 +66,14 @@ public class Paciente implements Serializable{
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    public List<Tratamiento> getTratamientos() {
+        return tratamientos;
+    }
+
+    public void agregarTratamiento(Tratamiento tratamiento) {
+        this.tratamientos.add(tratamiento);
     }
 
     public ExpedienteClinico getExpedienteMedico() {

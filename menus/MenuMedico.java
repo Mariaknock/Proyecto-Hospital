@@ -1,13 +1,26 @@
 package menus;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
+import inventario.GestorInventario; 
+import inventario.Inventario;
+import inventario.Medicamento;
+import paciente.GestorPaciente; 
+import paciente.Paciente;
+
 
 public class MenuMedico {
 
     Scanner scanner= new Scanner(System.in);
     int opcion;
 
+
+
     public void mostrarMenu(){
+        GestorPaciente.cargarDesdeArchivo();
+        GestorInventario.cargarDesdeArchivo();
+
+
         System.out.println("Viendo ahora: Menu de Medico ");
         System.out.println("¡Bienvenido! ¿Que opcion deseas realizar hoy?");
        

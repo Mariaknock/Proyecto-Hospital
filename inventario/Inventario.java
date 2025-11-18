@@ -78,5 +78,23 @@ public class Inventario {
         }
         System.out.println("El medicamento no existe en el stock");
     }
+
+
+    public void poblarInventario(){
+    //prubeas
+    Medicamento m1 = new Medicamento("Paracetamol 500 mg", "Paracetamol", "Tabletas", "500 mg", "Analgésico");
+    Medicamento m2 = new Medicamento("Losartán 50 mg", "Losartán", "Tabletas", "50 mg", "Antihipertensivo");
+    Medicamento m3 = new Medicamento("Amoxicilina 250 mg", "Amoxicilina", "Suspensión", "250 mg/5ml", "Antibiótico");
+    
+    agregarMedicamentoAlCatalogo(m1);
+    agregarMedicamentoAlCatalogo(m2);
+    agregarMedicamentoAlCatalogo(m3);
+    agregarStock(m1, 100);
+    agregarStock(m2, 50);
+    agregarStock(m3, 30);
+    
+    }
+
+
     
 }

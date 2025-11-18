@@ -15,6 +15,9 @@ public class MenuRecepcionista {
 
     public void mostrarMenu(){
 
+        GestorPaciente.cargarDesdeArchivo();
+        GestorHabitacion.cargarDesdeArchivo();
+
         System.out.println("Viendo ahora: Menu de Recepcionista ");
         System.out.println("¡Bienvenido! ¿Que opcion deseas realizar hoy?");
        
@@ -50,7 +53,7 @@ public class MenuRecepcionista {
                 }
                 
                 
-            } catch (NumberFormatException e) {
+            } catch (InputMismatchException e) {
                 System.out.println("No ingresaste un numero, intenta de nuevo");
                 scanner.nextLine();
                 opcion=0;
