@@ -1,12 +1,11 @@
 package cita;
 import java.time.LocalTime;
 import java.util.Scanner;
-import crud.CRUD;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import paciente.Paciente;
 
-public class Agenda implements CRUD<Paciente>
+public class Agenda
 
 {
     private Scanner scanner;
@@ -21,9 +20,7 @@ public class Agenda implements CRUD<Paciente>
         
     }
 
-    @Override
-    public void crearInstancia(ArrayList<Paciente> pacientes){
-        String nombrePaciente;
+    public void crearCita(ArrayList<Paciente> pacientes){
         int dia;
         int mes;
         int año;
@@ -31,6 +28,7 @@ public class Agenda implements CRUD<Paciente>
         int minutos;
         double precio;
         int idPaciente;
+
 
         System.out.println("\n=== CREAR NUEVA CITA ===");
 
@@ -57,13 +55,8 @@ public class Agenda implements CRUD<Paciente>
                 throw new ConfiguracionInvalida("No se encontró un paciente con ID: " + idPaciente);
             }
 
-           
-            System.out.print("Ingrese el nombre del paciente: ");
-            nombrePaciente = scanner.nextLine();
-
-            if (nombrePaciente.trim().isEmpty()){
-                throw new ConfiguracionInvalida("Favor de llenar el campo del nombre");
-            }
+            System.out.println("El paciente es " +pacienteEncontrado.getNombre());
+            System.out.println("Favor de llenar los campos de la nueva cita");
 
             System.out.println("---FECHA DE LA CITA---");
             System.out.print("Día (1-31): ");
@@ -123,9 +116,14 @@ public class Agenda implements CRUD<Paciente>
 
             Fechamex fecha = new Fechamex(dia, mes, año, 0, 0);
             LocalTime hora= LocalTime.of(horas, minutos);
-            Cita nuevaCita= new Cita(nombrePaciente, fecha, hora, precio,idPaciente);
+            Cita nuevaCita= new Cita(pacienteEncontrado.getNombre(), fecha, hora, precio,idPaciente);
+
+            //agregar a la agenda
             agenda.add(nuevaCita);
-            System.out.println("Cita de "+ nombrePaciente + " Agregada exitosamente");
+            //agregar al paciente
+            pacienteEncontrado.agregarCitaPaciente(nuevaCita);
+            System.out.println("Cita de "+ pacienteEncontrado.getNombre() + " Agregada exitosamente");
+
 
         }catch(ConfiguracionInvalida e)
         {
@@ -139,16 +137,14 @@ public class Agenda implements CRUD<Paciente>
     }
 
 
-    @Override
-    public void verElementos(){
+    public void verCitas(){
         System.out.println("\n===CITAS===");
         for (Cita cita : agenda) {
             System.out.println(cita);
         }
     }
 
-    @Override
-    public void actualizarInstancia(){
+    public void actualizarCita(ArrayList<Paciente> pacientes){
             String nombrePaciente;
             int dia;
             int mes;
@@ -156,14 +152,67 @@ public class Agenda implements CRUD<Paciente>
             int horas;
             int minutos;
             double precio;
+            int idPaciente;
+
+
+        try{
+
+            System.out.println("Ingrese el ID del paciente para actualizar su cita");
+            idPaciente=scanner.nextInt();
+            scanner.nextLine();
+
+            if(idPaciente<0)
+            {
+                throw new ConfiguracionInvalida("El ID del paciente no puede ser un numero negativo");
+            }
+
+            Paciente pacienteEncontrado = null;
+            for (Paciente paciente : pacientes) {
+                if (paciente.getId() ==idPaciente) {
+                    pacienteEncontrado = paciente;
+                    break;
+                }
+            }
+
+            if (pacienteEncontrado == null) {
+                throw new ConfiguracionInvalida("No se encontró un paciente con ID: " + idPaciente);
+            }
+
+            //Si no tienes citas por actualizar
+            if (pacienteEncontrado.getCitasPaciente().isEmpty())
+            {
+                throw new ConfiguracionInvalida("El paciente aun no tiene citas");
+            }
+
+            //mostrar citas actuales
+            for ( Cita cita : pacienteEncontrado.getCitasPaciente()) {
+                System.out.println(cita);
+            }
+
+            int idCita;
+            System.out.println("Ingrese el ID de la cita a modificar");
+            idCita=scanner.nextInt();
+            scanner.nextLine();
+
+            Cita modificacionCita = null;
+            for (Cita cita : pacienteEncontrado.getCitasPaciente()) {
+                if (cita.getIdCita() ==idCita) {
+                    modificacionCita = cita;
+                    break;
+                }
+            }
+
+            if (modificacionCita == null) {
+                throw new ConfiguracionInvalida("No se encontro cita con ID: " + idCita);
+            }
+             
+
             System.out.println("\n¿Qué campo deseas modificar?");
             System.out.println("1. Nombre del paciente");
             System.out.println("2. Fecha de la cita");
             System.out.println("3. Hora de la cita");
             System.out.println("4. Precio de la cita");
             System.out.print("Selecciona una opción: ");
-
-        try{
             int opcion = scanner.nextInt();
             scanner.nextLine();
 
@@ -174,6 +223,7 @@ public class Agenda implements CRUD<Paciente>
                     if (nombrePaciente.isEmpty()) {
                         throw new ConfiguracionInvalida("El nombre no puede estar vacío");
                     }
+                    modificacionCita.setNombrePaciente(nombrePaciente);
                     System.out.println("Nombre actualizado correctamente");
                     break;
                     
@@ -196,7 +246,11 @@ public class Agenda implements CRUD<Paciente>
                     if (año < 2024 || año > 2100) {
                         throw new ConfiguracionInvalida("Año debe estar entre 2024-2100");
                     }
+
+                    Fechamex nuevaFecha= new Fechamex(dia, mes, año, 0, 0);
+                    modificacionCita.setFecha(nuevaFecha);
                     System.out.println("Fecha actualizada correctamente");
+                    
                     break;
                     
                 case 3:
@@ -213,6 +267,8 @@ public class Agenda implements CRUD<Paciente>
                     if (minutos < 0 || minutos > 59) {
                         throw new ConfiguracionInvalida("Minutos deben estar entre 0-59");
                     }
+                    LocalTime nuevaHora=LocalTime.of(opcion, minutos);
+                    modificacionCita.setHora(nuevaHora);
                     System.out.println("Hora actualizada correctamente");
                     break;
                     
@@ -224,6 +280,7 @@ public class Agenda implements CRUD<Paciente>
                     if (precio < 0) {
                         throw new ConfiguracionInvalida("El precio no puede ser negativo");
                     }
+                    modificacionCita.setPrecio(precio);
                     System.out.println("Precio actualizado correctamente");
                     break;
                     
@@ -240,8 +297,9 @@ public class Agenda implements CRUD<Paciente>
         }
     }
 
-    @Override
-    public void eliminarInstancia(){}
+    public void eliminarCita(
+        
+    ){}
 
 
 
