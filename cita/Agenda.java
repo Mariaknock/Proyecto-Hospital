@@ -43,16 +43,10 @@ public class Agenda
                 throw new ConfiguracionInvalida("El ID del paciente no puede ser un numero negativo");
             }
 
-            Paciente pacienteEncontrado = null;
-            for (Paciente paciente : pacientes) {
-                if (paciente.getId() ==idPaciente) {
-                    pacienteEncontrado = paciente;
-                    break;
-                }
-            }
+            Paciente pacienteEncontrado = buscarPacientePorID(idPaciente, pacientes);
 
             if (pacienteEncontrado == null) {
-                throw new ConfiguracionInvalida("No se encontró un paciente con ID: " + idPaciente);
+                throw new ConfiguracionInvalida("No se encontro un paciente con ID: " + idPaciente);
             }
 
             System.out.println("El paciente es " +pacienteEncontrado.getNombre());
@@ -153,8 +147,6 @@ public class Agenda
             int minutos;
             double precio;
             int idPaciente;
-
-
         try{
 
             System.out.println("Ingrese el ID del paciente para actualizar su cita");
@@ -166,13 +158,7 @@ public class Agenda
                 throw new ConfiguracionInvalida("El ID del paciente no puede ser un numero negativo");
             }
 
-            Paciente pacienteEncontrado = null;
-            for (Paciente paciente : pacientes) {
-                if (paciente.getId() ==idPaciente) {
-                    pacienteEncontrado = paciente;
-                    break;
-                }
-            }
+            Paciente pacienteEncontrado = buscarPacientePorID(idPaciente, pacientes);
 
             if (pacienteEncontrado == null) {
                 throw new ConfiguracionInvalida("No se encontró un paciente con ID: " + idPaciente);
@@ -185,23 +171,15 @@ public class Agenda
             }
 
             //mostrar citas actuales
-            for ( Cita cita : pacienteEncontrado.getCitasPaciente()) {
-                System.out.println(cita);
-            }
+            mostrarCitasDePaciente(pacienteEncontrado);
 
             int idCita;
             System.out.println("Ingrese el ID de la cita a modificar");
             idCita=scanner.nextInt();
             scanner.nextLine();
 
-            Cita modificacionCita = null;
-            for (Cita cita : pacienteEncontrado.getCitasPaciente()) {
-                if (cita.getIdCita() ==idCita) {
-                    modificacionCita = cita;
-                    break;
-                }
-            }
-
+            Cita modificacionCita = buscarCitadePacientePorID(idCita, pacienteEncontrado);
+    
             if (modificacionCita == null) {
                 throw new ConfiguracionInvalida("No se encontro cita con ID: " + idCita);
             }
@@ -297,7 +275,64 @@ public class Agenda
         }
     }
 
-    public void eliminarCita(){}
+    public void eliminarCita(ArrayList<Paciente> pacientes){
+        try{
+
+            int idPaciente;
+            System.out.println("Ingrese el ID del paciente para eliminar su cita");
+            idPaciente=scanner.nextInt();
+            scanner.nextLine();
+
+            if(idPaciente<0)
+            {
+                throw new ConfiguracionInvalida("El ID del paciente no puede ser un numero negativo");
+            }
+
+            Paciente pacienteEncontrado = buscarPacientePorID(idPaciente, pacientes);
+
+            if (pacienteEncontrado == null) {
+                throw new ConfiguracionInvalida("No se encontró un paciente con ID: " + idPaciente);
+            }
+
+            //Si no tienes citas por eliminar
+            if (pacienteEncontrado.getCitasPaciente().isEmpty())
+            {
+                throw new ConfiguracionInvalida("El paciente aun no tiene citas");
+            }
+
+            //mostrar citas actuales
+            mostrarCitasDePaciente(pacienteEncontrado);
+
+            int idCita;
+            System.out.println("Ingrese el ID de la cita a eliminar");
+            idCita=scanner.nextInt();
+            scanner.nextLine();
+
+            Cita citaEliminada = buscarCitadePacientePorID(idCita, pacienteEncontrado);
+
+            if (citaEliminada == null) {
+                throw new ConfiguracionInvalida("No se encontro cita con ID: " + idCita);
+            }
+
+           pacienteEncontrado.eliminarCitaPaciente(citaEliminada);
+           boolean eliminadaDeAgenda = agenda.remove(citaEliminada);
+        
+            if (eliminadaDeAgenda) {
+                System.out.println("Cita eliminada exitosamente de la agenda");
+            } else {
+                System.out.println("Cita eliminada del paciente pero no encontrada en agenda");
+            }
+
+        }catch(ConfiguracionInvalida e)
+        {
+            System.out.println("Error de configuracion."+ e.getMessage());
+            System.out.println("No se pudo eliminar la cita");
+        }catch(InputMismatchException e2)
+        {
+            System.out.println("Error de usuario, no se permiten agregar letras en los campos numericos");
+        }
+
+    }
 
 
     public Cita buscarCitaPorNombre(String nombrePaciente) {
@@ -316,8 +351,39 @@ public class Agenda
         }
     }
 
+    public Paciente buscarPacientePorID(int idPaciente, ArrayList<Paciente> pacientes)
+    {
+            for (Paciente paciente : pacientes) {
+                if (paciente.getId() ==idPaciente) {
+                    return paciente;
+                }
+            }
 
+            return null;
+        
+    }
+
+    public void mostrarCitasDePaciente(Paciente paciente)
+    {
+        for (Cita cita : paciente.getCitasPaciente()) {
+            System.out.println(cita);
+        }
+    }
+
+    public Cita buscarCitadePacientePorID(int idCita,Paciente paciente)
+    {
+        for (Cita cita : paciente.getCitasPaciente()) {
+                if (cita.getIdCita() ==idCita) {
+                    return cita;
+                }
+            }
+        return null;
+    }
+    
+    
 }
+
+
 
 
 
