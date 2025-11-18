@@ -26,24 +26,20 @@ public class MenuMedico {
        
         do{
             System.out.println("1) Consultar expediente de los pacientes");
-            System.out.println("2) Asignar tratamiento");
-            System.out.println("3) Pedir medicamentos");
-            System.out.println("4) Cerrar Sesion");
+            System.out.println("2) Pedir medicamentos");
+            System.out.println("3) Cerrar Sesion");
 
             try {
                 opcion = scanner.nextInt();
                 switch(opcion){
 
                     case 1:
-                        //consultarexpediente();
+                        GestorPaciente.consultarExpediente(scanner);
                         break;
                     case 2:
-                        //asignartratamiento();
-                        break;
-                    case 3:
                         //pedirmedicamentos();
                         break;
-                    case 4:
+                    case 3:
                         System.out.println("Cerrando la sesion de Medico");
                         break;
                     default:

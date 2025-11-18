@@ -9,12 +9,11 @@ public class Medicamento {
     private String descripcion;
 
 
-    public Medicamento(String nombre, String principioActivo, String presentacion, String dosis, String descripcion) {
+    public Medicamento(String nombre, String principioActivo, String presentacion, String dosis) {
         this.nombre = nombre;
         this.principioActivo = principioActivo;
         this.presentacion = presentacion;
         this.dosis = dosis;
-        this.descripcion = descripcion;
     }
 
     public String getNombre() {

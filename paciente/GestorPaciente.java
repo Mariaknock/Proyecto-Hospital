@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import menus.MenuGestionPaciente;
+
 public class GestorPaciente {
     private static String archivoBinario = "pacientes.dat";
     private static ArrayList<Paciente> pacientes = new ArrayList<>();
@@ -148,8 +150,10 @@ public class GestorPaciente {
         String nombre=scanner.nextLine();
         System.out.println("Ingresa la edad: ");
         int edad=scanner.nextInt();
+        scanner.nextLine();
         System.out.println("Ingresa la altura (en metros): ");
         double altura=scanner.nextDouble();
+        scanner.nextLine();
         System.out.println("Ingrese el peso (en kg): ");
         double peso=scanner.nextDouble(); 
         scanner.nextLine();
@@ -179,6 +183,25 @@ public class GestorPaciente {
         System.out.println("Error en los datos, hazlo de nuevo");
       }
     }
+
+    public static Paciente getPacienteEspecifico(int id){
+        if (id <= 0) {
+            System.out.println("El id no es válido");
+            return null;
+        } else {
+            return pacientes.get(id-1);
+        }
+    }
+
+    public static void consultarExpediente(Scanner scanner){
+        System.out.println("Introduce el id del paciente a buscar");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+        MenuGestionPaciente menu = new MenuGestionPaciente();
+        menu.mostrarSubMenu(getPacienteEspecifico(id));
+
+    }
+
 
 }
 

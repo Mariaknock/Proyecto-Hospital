@@ -13,10 +13,9 @@ import paciente.Tratamiento;
 
 public class MenuGestionPaciente {
 
-    Scanner scanner= new Scanner(System.in);
-    private Paciente paciente; 
+    Scanner scanner= new Scanner(System.in); 
 
-    public void mostrarSubMenu() {
+    public void mostrarSubMenu(Paciente paciente) {
         int opcion = 0;
         do {
             System.out.println("Estas viendo al paciente  " + paciente.getNombre() + " con ID: " + paciente.getId() );
@@ -43,10 +42,10 @@ public class MenuGestionPaciente {
                         System.out.println("Hecho :D");
                         break;
                     case 3:
-                        verTratamientos();
+                        verTratamientos(paciente);
                         break;
                     case 4:
-                        iniciarTratamiento();
+                        iniciarTratamiento(paciente);
                         break;
                     case 5:
                         System.out.println("Volviendooo");
@@ -61,7 +60,7 @@ public class MenuGestionPaciente {
         } while (opcion != 5);
     }
 
-    private void verTratamientos() {
+    private void verTratamientos(Paciente paciente) {
 
         if (paciente.getTratamientos().isEmpty()) {
             System.out.println("El paciente no tiene tratamientos registrados");
@@ -84,7 +83,7 @@ public class MenuGestionPaciente {
     }
 
 
-    private void iniciarTratamiento() {
+    private void iniciarTratamiento(Paciente paciente) {
 
         System.out.print("Ingrese el diagnostico: ");
         String diagnostico = scanner.nextLine();

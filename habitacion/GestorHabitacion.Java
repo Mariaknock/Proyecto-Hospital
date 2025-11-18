@@ -88,9 +88,11 @@ public class GestorHabitacion {
             
             if (h.getAforoActual() == 0) {
                 habitacionesLibres++;
+                System.out.println("Habitación " + h.getNumeroHabitacion() + " libre");
             } else if (h.getAforoActual() == h.getCantidadCamas()) {
                 habitacionesCompletas++;
             } else{
+                System.out.println("Habitación " + h.getNumeroHabitacion() + " con espacio");
                 habitacionesOcupadas++;
             }
         }
