@@ -2,10 +2,12 @@ package paciente;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.Serializable;
 
 import inventario.Medicamento;
+import paciente.Paciente;
 
-public class Tratamiento {
+public class Tratamiento implements Serializable{
 
     private String diagnostico;
     private LocalDate fechaDeInicio;

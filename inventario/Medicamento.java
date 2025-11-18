@@ -1,5 +1,10 @@
 package inventario;
-public class Medicamento {
+
+import java.util.Scanner;
+import paciente.Tratamiento;
+import java.io.Serializable;
+
+public class Medicamento implements Serializable {
 
 
     private String nombre;
@@ -62,4 +67,6 @@ public class Medicamento {
         System.err.println("Dosis " + dosis);
 
     }
+
+
 }

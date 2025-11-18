@@ -2,6 +2,8 @@ package inventario;
 
 import java.io.*;
 
+import paciente.Tratamiento;
+
 public class GestorInventario {
 
     private static String archivoBinario = "inventario.dat";
@@ -50,4 +52,43 @@ public class GestorInventario {
         }
         return inventario;
     }
+
+
+    public static void verInventario() {
+        getInventario().verInventario();
+    }
+
+
+   public static void prescribirMedicamento(String nombreMed, Tratamiento tratamiento) {
+        Inventario inv = getInventario();
+        
+        Medicamento medEncontrado = null;
+        for (Medicamento m : inv.getCatalogoDeMedicamentos()) {
+            if (m.getNombre().equalsIgnoreCase(nombreMed)) {
+                medEncontrado = m;
+                break;
+            }
+        }
+
+        if (medEncontrado != null) {
+            if (inv.verificarStock(medEncontrado) > 0) {
+                
+                tratamiento.agregarMedicamento(medEncontrado);
+                inv.despacharMedicamento(medEncontrado, 1);
+                guardarEnArchivo(); 
+                
+            
+                System.out.println(medEncontrado.getNombre() + " agregado al tratamiento.");
+                
+            } else {
+                System.out.println("No hay stock de " + medEncontrado.getNombre());
+            }
+        } else {
+            System.out.println(" Medicamento no encontrado");
+        }
+    }
+
+
+
+
 }
