@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class GestorPaciente {
     private static String archivoBinario = "pacientes.dat";
@@ -137,4 +139,46 @@ public class GestorPaciente {
         }
     }
     */
+
+    public static void registrarPaciente(Scanner scanner){
+
+      try {
+
+        System.out.println("Ingresa el nombre del paciente: ");
+        String nombre=scanner.nextLine();
+        System.out.println("Ingresa la edad: ");
+        int edad=scanner.nextInt();
+        System.out.println("Ingresa la altura (en metros): ");
+        double altura=scanner.nextDouble();
+        System.out.println("Ingrese el peso (en kg): ");
+        double peso=scanner.nextDouble(); 
+        scanner.nextLine();
+
+        int nuevoid;
+        int maxId=0;
+        if(!pacientes.isEmpty()){
+            for (Paciente p: pacientes){
+                if(p.getId()> maxId){
+                    maxId=p.getId();
+                }
+            }
+        }
+        nuevoid=maxId+1;
+        
+        Paciente nuevoPaciente = new PacienteBuilder(nuevoid, nombre).edad(edad).altura(altura).peso(peso).build();
+        pacientes.add(nuevoPaciente);
+        guardarEnArchivo();
+        System.out.println("Paciente registrado");
+        System.out.println(nuevoPaciente.toString());
+        System.out.println("Total de pacientes: " + pacientes.size());
+
+      }catch(InputMismatchException e){
+        System.out.println("Ingresa un numero que sea valido");
+        scanner.nextLine();
+      }catch (IllegalArgumentException e){
+        System.out.println("Error en los datos, hazlo de nuevo");
+      }
+    }
+
 }
+
