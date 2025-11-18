@@ -80,11 +80,22 @@ public class Paciente implements Serializable{
     public ExpedienteClinico getExpedienteMedico() {
         return expedienteMedico;
     }
+
     public ArrayList<Cita> getCitasPaciente() {
         return citasPaciente;
     }
     public void setCitasPaciente(ArrayList<Cita> citasPaciente) {
         this.citasPaciente = citasPaciente;
+    }
+
+    public void agregarCitaPaciente(Cita cita)
+    {
+        citasPaciente.add(cita);
+    }
+
+    public void eliminarCitaPaciente(Cita cita)
+    {
+        citasPaciente.remove(cita);
     }
 
 

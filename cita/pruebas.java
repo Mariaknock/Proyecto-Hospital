@@ -12,8 +12,15 @@ public class pruebas
       ArrayList<Paciente> pacientes=new ArrayList<>();
       pacientes.add(paciente1);
       pacientes.add(paciente2);
-      agenda.crearInstancia(pacientes);
-      agenda.verElementos();
+      agenda.crearCita(pacientes);
+      agenda.crearCita(pacientes);
+      agenda.crearCita(pacientes);
+
+      agenda.actualizarCita(pacientes);
+      agenda.actualizarCita(pacientes);
+
+
+      //agenda.verCitas();
 
     }
 }
