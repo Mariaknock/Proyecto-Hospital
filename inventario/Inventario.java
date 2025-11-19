@@ -1,9 +1,10 @@
 package inventario;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Inventario {
+public class Inventario implements Serializable{
 
     private List<Medicamento> catalogoDeMedicamentos;
     private HashMap<String, Integer> stock; 

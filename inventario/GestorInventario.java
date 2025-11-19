@@ -85,8 +85,13 @@ public class GestorInventario {
             System.out.println(" Medicamento no encontrado");
         }
     }
-
-
+    
+    /*public static void main(String[] args) {
+        inventario = new Inventario();
+        guardarEnArchivo();
+        cargarDesdeArchivo();
+        verInventario();
+    } */
 
 
 }
