@@ -7,7 +7,6 @@ import java.io.Serializable;
 import inventario.Medicamento;
 
 public class Tratamiento implements Serializable{
-
     private String diagnostico;
     private LocalDate fechaDeInicio;
     private LocalDate fechaDeFin;

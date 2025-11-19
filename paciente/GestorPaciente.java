@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class GestorPaciente {
     private static String archivoBinario = "pacientes.dat";
     private static ArrayList<Paciente> pacientes = new ArrayList<>();
+    
 
     public static ArrayList<Paciente> getPacientes(){
         return pacientes;
@@ -126,7 +127,7 @@ public class GestorPaciente {
         return pacientes;
     }
 
-    /* 
+
     public static void main(String[] args) {
         System.out.println("=== GENERANDO Y GUARDANDO PACIENTES ===");
 
@@ -138,7 +139,7 @@ public class GestorPaciente {
 
         }
     }
-    */
+    
 
     public static void registrarPaciente(Scanner scanner){
 
