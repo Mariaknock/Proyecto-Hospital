@@ -125,6 +125,7 @@ public class MenuGestionCitas {
         if (citaEncontrada != null) {
             System.out.println("Cita encontrada exitosamente:");
             System.out.println(citaEncontrada);
+        
         }
         
     }

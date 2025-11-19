@@ -8,7 +8,6 @@ import inventario.Medicamento;
 import paciente.Paciente;
 
 public class Tratamiento implements Serializable{
-
     private String diagnostico;
     private LocalDate fechaDeInicio;
     private LocalDate fechaDeFin;

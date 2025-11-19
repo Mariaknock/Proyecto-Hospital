@@ -24,11 +24,5 @@ public class pruebas
       menuGestionCitas.mostrarMenuPrincipal();
 
 
-
-
-
-
-    
-
     }
 }

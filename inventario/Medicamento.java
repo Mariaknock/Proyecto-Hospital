@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 public class Medicamento implements Serializable {
 
+    private static final long serialVersionUID = 1L;  // ← AGREGA ESTA LÍNEA
 
     private String nombre;
     private String principioActivo;
