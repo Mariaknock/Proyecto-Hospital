@@ -43,7 +43,7 @@ public class MenuMedico {
                     case 3:
                         GestorInventario.verInventario();
                         break;
-                    case 3:
+                    case 4:
                         System.out.println("Cerrando la sesion de Medico");
                         break;
                     default:
