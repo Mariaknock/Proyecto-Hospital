@@ -1,7 +1,5 @@
 package inventario;
 
-import java.util.Scanner;
-import paciente.Tratamiento;
 import java.io.Serializable;
 
 public class Medicamento implements Serializable {
@@ -63,6 +61,7 @@ public class Medicamento implements Serializable {
     
     public void mostrarInformacion(){
         System.out.println("Nombre " + nombre );
+        System.out.println("Principio activo " + principioActivo );
         System.out.println("Presemtacion : "+ presentacion);
         System.err.println("Dosis " + dosis);
 

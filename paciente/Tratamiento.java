@@ -5,7 +5,6 @@ import java.util.List;
 import java.io.Serializable;
 
 import inventario.Medicamento;
-import paciente.Paciente;
 
 public class Tratamiento implements Serializable{
 
@@ -83,7 +82,23 @@ public class Tratamiento implements Serializable{
         this.estado = estado;
     }
 
-
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("Tratamiento - ").append(diagnostico).append("\n");
+        sb.append("  Período: ").append(fechaDeInicio);
+        sb.append(" hasta ").append(fechaDeFin).append("\n");
+        sb.append("  Estado: ").append(estado).append("\n");
+        sb.append("  Medicamentos: ").append(medicamentosPrescritos.size()).append(" prescritos\n");
+        
+        for (Medicamento medicamento : medicamentosPrescritos) {
+            if (medicamento != null) {
+                sb.append("    * ").append(medicamento.toString()).append("\n");
+            }
+        }
+        
+        return sb.toString();
+    }
     
 
    

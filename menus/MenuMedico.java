@@ -35,7 +35,7 @@ public class MenuMedico {
                 switch(opcion){
 
                     case 1:
-                        GestorPaciente.consultarExpediente(scanner);
+                        seleccionarYAtenderPaciente();
                         break;
                     case 2:
                         verListaPacientes();

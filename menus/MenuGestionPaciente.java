@@ -14,7 +14,7 @@ public class MenuGestionPaciente {
     Scanner scanner= new Scanner(System.in); 
 
     public void mostrarSubMenu(Paciente pacienteRecibido) {
-        paciente=pacienteRecibido;
+        Paciente paciente=pacienteRecibido;
 
         int opcion = 0;
         do {
@@ -83,15 +83,10 @@ public class MenuGestionPaciente {
         GestorPaciente.guardarEnArchivo(); 
         System.out.println("Tratamiento guardado en el expediente");
     }
-
-
-
-
-
-
-
-
-
-
     
+    private void verTratamientos(Paciente paciente){
+        for(Tratamiento tratamiento : paciente.getTratamientos()){
+            System.out.println(tratamiento);
+        }
+    }
 }

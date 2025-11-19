@@ -1,7 +1,6 @@
 package inventario;
 
 import java.io.*;
-
 import paciente.Tratamiento;
 
 public class GestorInventario {
@@ -18,7 +17,6 @@ public class GestorInventario {
         } catch (FileNotFoundException e) {
             System.err.println("Archivo de inventario no encontrado, se va a crear otro ");
             inventario = new Inventario();
-            inventario.poblarInventario(); 
             guardarEnArchivo(); 
             
         } catch (IOException | ClassNotFoundException e) {
@@ -71,10 +69,10 @@ public class GestorInventario {
         }
 
         if (medEncontrado != null) {
-            if (inv.verificarStock(medEncontrado) > 0) {
+            if (inv.verificarStock(medEncontrado.getNombre()) > 0) {
                 
                 tratamiento.agregarMedicamento(medEncontrado);
-                inv.despacharMedicamento(medEncontrado, 1);
+                inv.despacharMedicamento(medEncontrado.getNombre(), 1);
                 guardarEnArchivo(); 
                 
             

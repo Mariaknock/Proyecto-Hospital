@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import menus.MenuGestionPaciente;
-
 public class GestorPaciente {
     private static String archivoBinario = "pacientes.dat";
     private static ArrayList<Paciente> pacientes = new ArrayList<>();
@@ -191,15 +189,6 @@ public class GestorPaciente {
         } else {
             return pacientes.get(id-1);
         }
-    }
-
-    public static void consultarExpediente(Scanner scanner){
-        System.out.println("Introduce el id del paciente a buscar");
-        int id = scanner.nextInt();
-        scanner.nextLine();
-        MenuGestionPaciente menu = new MenuGestionPaciente();
-        menu.mostrarSubMenu(getPacienteEspecifico(id));
-
     }
 
 

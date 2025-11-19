@@ -1,7 +1,7 @@
 package inventario;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Inventario {
 
@@ -9,7 +9,7 @@ public class Inventario {
     private HashMap<String, Integer> stock; 
 
     public Inventario() {
-        this.catalogoDeMedicamentos = new ArrayList<>();
+        this.catalogoDeMedicamentos = Stock.getMedicamentos();
         Stock.crearMedicamentos();
         Stock.crearStock();
         this.stock = Stock.getStock();
@@ -55,5 +55,11 @@ public class Inventario {
         Stock.disminuirStock(nombre, cantidadADespachar);
     }
 
-    
+    public void verInventario() {
+        for (Map.Entry<String, Integer> entrada : stock.entrySet()) {
+            String medicamento = entrada.getKey();
+            Integer cantidad = entrada.getValue();
+            System.out.println("Medicamento: " + medicamento + ", Stock: " + cantidad);
+        }
+    }
 }

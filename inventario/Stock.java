@@ -60,6 +60,10 @@ public class Stock {
         return stock;
     }
 
+    public static ArrayList<Medicamento> getMedicamentos(){
+        return medicamentos;
+    }
+
     public static void incrementarStock(String nombre, int cantidad){
         if(stock.get(nombre)!= null){
             int cantidadActual = stock.get(nombre);
