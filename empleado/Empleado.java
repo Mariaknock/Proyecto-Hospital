@@ -6,16 +6,14 @@ public class Empleado implements Serializable{
     private int idEmpleado;
     private String area;
     private String turno;
-    private String contraseña;
 
     
-    public Empleado(int idEmpleado, String nombre, String apellido, String area,String turno, String contraseña){
+    public Empleado(int idEmpleado, String nombre, String apellido, String area,String turno){
         this.idEmpleado=idEmpleado;
         this.nombre= nombre;
         this.apellido= apellido;
         this.area= area;
         this.turno=turno;
-        this.contraseña=contraseña;
     }
 
 
@@ -66,15 +64,6 @@ public class Empleado implements Serializable{
     public void setTurno(String turno){
         this.turno=turno;
     }
-
-    public void setContrasena(String contraseña){
-        this.contraseña=contraseña;
-    }
-
-    public String getContrasena(){
-        return contraseña;
-    }
-
 
 
 }

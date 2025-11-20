@@ -39,8 +39,10 @@ public class MenuAdmin {
                         break;
                     case 4:
                         System.out.println("Cerrando la sesion de administrador");
+                        break;
                     default:
                         System.out.println("Opcion no valida, otra vez");
+                        break;
                 }
                 
                 
@@ -75,7 +77,7 @@ public class MenuAdmin {
 
             switch (tipo) {
                 case 1: 
-                    Medico m = new Medico(id, nombre, apellido, area, turno, "M1E2D3");
+                    Medico m = new Medico(id, nombre, apellido, area, turno);
                     System.out.print("Cedula: "); 
                     String cedula= scanner.nextLine();
                     m.setCedula(cedula);
@@ -88,7 +90,7 @@ public class MenuAdmin {
                     nuevo = m;
                     break;
                 case 2:
-                    nuevo = new Recepcionista(id, nombre, apellido, area, turno, "R4E5C6");
+                    nuevo = new Recepcionista(id, nombre, apellido, area, turno);
                     break;
                 default:
                     System.out.println("Cargo inexistente");

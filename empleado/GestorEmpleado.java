@@ -32,7 +32,7 @@ public class GestorEmpleado {
             String especialidad = especialidades[random.nextInt(especialidades.length)];
             int consultorio = random.nextInt(20) + 1;
 
-            Medico m = new Medico(i, nombre, apellido, area, turno, "M1E2D3");
+            Medico m = new Medico(i, nombre, apellido, area, turno);
             m.setCedula(cedula);
             m.setEspecialidad(especialidad);
             m.setConsultorio(consultorio);
@@ -45,7 +45,7 @@ public class GestorEmpleado {
             String apellido = apellidos[random.nextInt(apellidos.length)];
             String turno = turnos[random.nextInt(turnos.length)];
             String area = "recepcionista";
-            Recepcionista r = new Recepcionista(i, nombre, apellido, area, turno, "R4E5C6");
+            Recepcionista r = new Recepcionista(i, nombre, apellido, area, turno);
             listaEmpleados.add(r);
         }
 
