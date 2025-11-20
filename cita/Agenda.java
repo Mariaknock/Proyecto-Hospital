@@ -67,7 +67,7 @@ public class Agenda
             System.out.println("Favor de llenar los campos de la nueva cita");
 
             System.out.println("---FECHA DE LA CITA---");
-            System.out.print("Día (1-31): ");
+            System.out.print("Dia (1-31): ");
             dia = scanner.nextInt();
             scanner.nextLine(); 
 
@@ -131,8 +131,6 @@ public class Agenda
             //agregar al paciente
             pacienteEncontrado.agregarCitaPaciente(nuevaCita);
             System.out.println("Cita de "+ pacienteEncontrado.getNombre() + " Agregada exitosamente");
-           // GestorPaciente.guardarEnArchivo();
-            //
 
 
         }catch(ConfiguracionInvalida e)
@@ -177,7 +175,7 @@ public class Agenda
             Paciente pacienteEncontrado = buscarPacientePorID(idPaciente, pacientes);
 
             if (pacienteEncontrado == null) {
-                throw new ConfiguracionInvalida("No se encontró un paciente con ID: " + idPaciente);
+                throw new ConfiguracionInvalida("No se encontro un paciente con ID: " + idPaciente);
             }
 
             //Si no tienes citas por actualizar
