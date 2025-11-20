@@ -27,16 +27,15 @@ public class Agenda
 
     public void cargarCitasDesdePacientes(ArrayList<Paciente> pacientes) {
         System.out.println("=== CARGANDO CITAS EN AGENDA ===");
+    
         for (Paciente paciente : pacientes) {
             for (Cita cita : paciente.getCitasPaciente()) {
-                if (!agenda.contains(cita)) {
-                    agenda.add(cita);
-                }
+                agenda.add(cita);
             }
-        }        
+        }
+        
+        System.out.println("Citas cargadas en agenda: " + agenda.size());
     }
-
-
 
     public void crearCita(ArrayList<Paciente> pacientes){
         int dia;
