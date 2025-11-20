@@ -6,6 +6,7 @@ import java.util.Scanner;
 import empleado.Empleado;
 import empleado.Medico;
 import empleado.Recepcionista;
+import habitacion.GestorHabitacion;
 
 public class MenuAdmin {
     private ArrayList<Empleado> listaEmpleados = new ArrayList<>();
@@ -20,7 +21,8 @@ public class MenuAdmin {
         do{
             System.out.println("1) Registrar nuevo empleado");
             System.out.println("2) Listar empleados");
-            System.out.println("3) Cerrar Sesion");
+            System.out.println("3) Ver estaditicas de habitaciones");
+            System.out.println("4) Cerrar Sesion");
 
             try {
                 opcion = scanner.nextInt();
@@ -33,8 +35,10 @@ public class MenuAdmin {
                         listarEmpleados();
                         break;
                     case 3:
-                        System.out.println("Cerrando la sesion de administrador");
+                        GestorHabitacion.mostrarEstadisticas();
                         break;
+                    case 4:
+                        System.out.println("Cerrando la sesion de administrador");
                     default:
                         System.out.println("Opcion no valida, otra vez");
                 }
@@ -45,7 +49,7 @@ public class MenuAdmin {
             }
 
 
-        }while(opcion!=3);
+        }while(opcion!=4);
     }
 
     private void registrarEmpleado() {

@@ -26,8 +26,7 @@ public class MenuRecepcionista {
         do{
             System.out.println("1) Registrar paciente");
             System.out.println("2) Gestionar citas");
-            System.out.println("3) Administrar ocupacion de habitaciones");
-            System.out.println("4) Cerrar Sesion");
+            System.out.println("3) Cerrar Sesion");
 
             try {
                 opcion = scanner.nextInt();
@@ -43,12 +42,6 @@ public class MenuRecepcionista {
                         menucit.mostrarMenuPrincipal();
                         break;
                     case 3:
-                        agenda.verCitas();
-                        break;
-                    case 4:
-                        GestorHabitacion.mostrarEstadisticas();
-                        break;
-                    case 5:
                         System.out.println("Cerrando la sesion de Recepcionista");
                         break;
                     default:
@@ -63,7 +56,7 @@ public class MenuRecepcionista {
             }
 
 
-        }while(opcion!=4);
+        }while(opcion!=3);
 
         System.out.println("Adios :D");
         scanner.close();

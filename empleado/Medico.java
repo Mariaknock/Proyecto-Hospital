@@ -11,7 +11,7 @@ public class Medico extends Empleado {
     private int consultorio;
     private ArrayList<Paciente> pacientesAtendidos;
 
-    public Medico(int idEmpleado, String nombre, String apellido, String area,String turno, int contraseña){
+    public Medico(int idEmpleado, String nombre, String apellido, String area,String turno, String contraseña){
         super(idEmpleado, nombre, apellido, area, turno,contraMedico);
         this.pacientesAtendidos = new ArrayList<>();
     }
