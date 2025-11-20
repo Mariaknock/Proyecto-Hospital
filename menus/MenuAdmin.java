@@ -31,7 +31,7 @@ public class MenuAdmin {
                         registrarEmpleado();
                         break;
                     case 2:
-                      listarEmpleados();
+                        listarEmpleados();
                         break;
                     case 3:
                         System.out.println("Cerrando la sesion de administrador");

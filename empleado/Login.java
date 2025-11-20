@@ -9,7 +9,7 @@ public class Login {
     
     private static ArrayList<Empleado> empleados;
 
-    public static Empleado iniciarSesion(String nombre, int contrasena) {
+    public static Empleado iniciarSesion(String nombre, String contrasena) {
         for (Empleado empleado : empleados) {
             if (empleado.getNombre().equalsIgnoreCase(nombre) && 
                 empleado.getContrasena().equals(contrasena)) {
