@@ -69,7 +69,7 @@ public class GestorInventario {
         }
 
         if (medEncontrado != null) {
-            if (inv.verificarStock(medEncontrado.getNombre()) > 0) {
+            if (Stock.verificarStock(medEncontrado.getNombre()) > 0) {
                 
                 tratamiento.agregarMedicamento(medEncontrado);
                 inv.despacharMedicamento(medEncontrado.getNombre(), 1);
