@@ -17,7 +17,6 @@ public class MenuAdmin {
 
     public void mostrarMenu(){
         GestorEmpleado.cargarDesdeArchivo();
-        GestorHabitacion.cargarDesdeArchivo();
 
         listaEmpleados = GestorEmpleado.getListaEmpleados();
         System.out.println("Viendo ahora: Menu de administrador ");
@@ -40,6 +39,7 @@ public class MenuAdmin {
                         listarEmpleados();
                         break;
                     case 3:
+                        GestorHabitacion.cargarDesdeArchivo();
                         GestorHabitacion.mostrarEstadisticas();
                         break;
                     case 4:

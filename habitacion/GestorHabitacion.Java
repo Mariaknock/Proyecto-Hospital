@@ -47,9 +47,7 @@ public class GestorHabitacion {
         }
     }
     @SuppressWarnings("unchecked")
-    public static ArrayList<Habitacion> cargarDesdeArchivo() {
-        ArrayList<Habitacion> habitaciones = null;
-        
+    public static ArrayList<Habitacion> cargarDesdeArchivo() {        
         try (ObjectInputStream ois = new ObjectInputStream(
                 new FileInputStream(archivoBinario))) {
             
