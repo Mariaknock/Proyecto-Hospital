@@ -37,10 +37,10 @@ public class MenuRecepcionista {
                         GestorPaciente.registrarPaciente(scanner);
                         break;
                     case 2:
-                        agenda.crearInstancia(GestorPaciente.getPacientes());
+                        agenda.crearCita(GestorPaciente.getPacientes());
                         break;
                     case 3:
-                        agenda.verElementos();
+                        agenda.verCitas();
                         break;
                     case 4:
                         GestorHabitacion.mostrarEstadisticas();
