@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.ArrayList;
 import cita.Agenda;
+import cita.GestorArchivosCitas;
 import paciente.GestorPaciente;
 import habitacion.GestorHabitacion; 
 import paciente.Paciente;
@@ -13,7 +14,6 @@ public class MenuRecepcionista {
 
     Scanner scanner= new Scanner(System.in);
     int opcion;
-    private Agenda agenda=new Agenda();
 
     public void mostrarMenu(){
 
@@ -37,9 +37,10 @@ public class MenuRecepcionista {
                         GestorPaciente.registrarPaciente(scanner);
                         break;
                     case 2:
-                        ArrayList<Paciente> listaPacientes= GestorPaciente.getPacientes();
-                        MenuGestionCitas menucit=new MenuGestionCitas(listaPacientes);
-                        menucit.mostrarMenuPrincipal();
+                        ArrayList<Paciente> pacientes = GestorArchivosCitas.leerPacientes("pacientes.dat");
+                        GestorArchivosCitas.crearCitasAutomaticas(pacientes);
+                        MenuGestionCitas menuGestionCitas= new MenuGestionCitas(pacientes);
+                        menuGestionCitas.mostrarMenuPrincipal();
                         break;
                     case 3:
                         System.out.println("Cerrando la sesion de Recepcionista");
