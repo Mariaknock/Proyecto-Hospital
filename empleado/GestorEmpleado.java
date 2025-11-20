@@ -27,7 +27,7 @@ public class GestorEmpleado {
             String nombre = nombres[random.nextInt(nombres.length)];
             String apellido = apellidos[random.nextInt(apellidos.length)];
             String turno = turnos[random.nextInt(turnos.length)];
-            String area = "Consultas";
+            String area = "medico";
             
             contraseña = 1000 + random.nextInt(9000);
 
@@ -47,7 +47,7 @@ public class GestorEmpleado {
             String nombre = nombres[random.nextInt(nombres.length)];
             String apellido = apellidos[random.nextInt(apellidos.length)];
             String turno = turnos[random.nextInt(turnos.length)];
-            String area = "Recepcion";
+            String area = "recepcionista";
             
             contraseña = 1000 + random.nextInt(9000);
 

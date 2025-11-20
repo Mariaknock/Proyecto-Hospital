@@ -1,14 +1,15 @@
 package empleado;
-public class Empleado {
+import java.io.Serializable;
+public class Empleado implements Serializable{
     private String nombre;
     private String apellido;
     private int idEmpleado;
     private String area;
     private String turno;
-    private int contraseña;
+    private String contraseña;
 
     
-    public Empleado(int idEmpleado, String nombre, String apellido, String area,String turno, int contraseña){
+    public Empleado(int idEmpleado, String nombre, String apellido, String area,String turno, String contraseña){
         this.idEmpleado=idEmpleado;
         this.nombre= nombre;
         this.apellido= apellido;
@@ -66,11 +67,11 @@ public class Empleado {
         this.turno=turno;
     }
 
-    public void setContrasena(int contraseña){
+    public void setContrasena(String contraseña){
         this.contraseña=contraseña;
     }
 
-    public int getContrasena(){
+    public String getContrasena(){
         return contraseña;
     }
 

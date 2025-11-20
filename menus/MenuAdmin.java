@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import empleado.Empleado;
-import empleado.Enfermera;
 import empleado.Medico;
 import empleado.Recepcionista;
 
@@ -67,8 +66,7 @@ public class MenuAdmin {
 
             System.out.println("Selecciona Cargo:");
             System.out.println("1) Medico");
-            System.out.println("2) Enfermera");
-            System.out.println("3) Recepcionista");
+            System.out.println("2) Recepcionista");
             int tipo = scanner.nextInt();
 
             Empleado nuevo;
@@ -88,9 +86,6 @@ public class MenuAdmin {
                     nuevo = m;
                     break;
                 case 2:
-                    nuevo = new Enfermera(id, nombre, apellido, area, turno, contraseña);
-                    break;
-                case 3:
                     nuevo = new Recepcionista(id, nombre, apellido, area, turno, contraseña);
                     break;
                 default:

@@ -2,9 +2,11 @@ package menus;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.ArrayList;
 import cita.Agenda;
 import paciente.GestorPaciente;
 import habitacion.GestorHabitacion; 
+import paciente.Paciente;
 
 
 public class MenuRecepcionista {
@@ -23,10 +25,9 @@ public class MenuRecepcionista {
        
         do{
             System.out.println("1) Registrar paciente");
-            System.out.println("2) Agendar cita");
-            System.out.println("3) Ver citas existentes");
-            System.out.println("4) Administrar ocupacion de habitaciones");
-            System.out.println("5) Cerrar Sesion");
+            System.out.println("2) Gestionar citas");
+            System.out.println("3) Administrar ocupacion de habitaciones");
+            System.out.println("4) Cerrar Sesion");
 
             try {
                 opcion = scanner.nextInt();
@@ -37,7 +38,9 @@ public class MenuRecepcionista {
                         GestorPaciente.registrarPaciente(scanner);
                         break;
                     case 2:
-                        agenda.crearCita(GestorPaciente.getPacientes());
+                        ArrayList<Paciente> listaPacientes= GestorPaciente.getPacientes();
+                        MenuGestionCitas menucit=new MenuGestionCitas(listaPacientes);
+                        menucit.mostrarMenuPrincipal();
                         break;
                     case 3:
                         agenda.verCitas();
@@ -60,7 +63,7 @@ public class MenuRecepcionista {
             }
 
 
-        }while(opcion!=5);
+        }while(opcion!=4);
 
         System.out.println("Adios :D");
         scanner.close();
