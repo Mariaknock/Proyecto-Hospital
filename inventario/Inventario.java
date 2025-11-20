@@ -49,7 +49,7 @@ public class Inventario implements Serializable{
     }
 
     public int verificarStock(String nombre) {
-        return verificarStock(nombre); 
+        return Stock.verificarStock(nombre); 
     }
 
     public void despacharMedicamento(String nombre, int cantidadADespachar) {
