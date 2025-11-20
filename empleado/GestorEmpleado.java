@@ -89,9 +89,9 @@ public class GestorEmpleado {
             empleado.mostrarInformacion();
         }
     }
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         System.out.println("=== GENERANDO EMPLEADOS ===");
         generarEmpleados();
         guardarEnArchivo();
-    }
+    } */
 }

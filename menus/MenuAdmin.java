@@ -4,17 +4,22 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import empleado.Empleado;
+import empleado.GestorEmpleado;
 import empleado.Medico;
 import empleado.Recepcionista;
 import habitacion.GestorHabitacion;
 
 public class MenuAdmin {
-    private ArrayList<Empleado> listaEmpleados = new ArrayList<>();
+    private ArrayList<Empleado> listaEmpleados;
     Scanner scanner= new Scanner(System.in);
     int opcion;
 
 
     public void mostrarMenu(){
+        GestorEmpleado.cargarDesdeArchivo();
+        GestorHabitacion.cargarDesdeArchivo();
+
+        listaEmpleados = GestorEmpleado.getListaEmpleados();
         System.out.println("Viendo ahora: Menu de administrador ");
         System.out.println("¡Bienvenido! ¿Que opcion deseas realizar hoy?");
        

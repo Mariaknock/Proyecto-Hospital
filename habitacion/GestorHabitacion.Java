@@ -63,8 +63,7 @@ public class GestorHabitacion {
         
         return habitaciones;
     }
-    
-    public static void main(String[] args) {
+    /* public static void main(String[] args) {
         System.out.println("=== GENERANDO Y GUARDANDO HABITACIONES ===");
         habitaciones = generarHabitaciones();
         guardarEnArchivo();
@@ -73,7 +72,8 @@ public class GestorHabitacion {
         for(Habitacion habitacion : habitaciones){
             System.out.println(habitacion);
         }
-    }
+    }*/
+    
     
     public static void mostrarEstadisticas() {
         int totalCamas = 0;
