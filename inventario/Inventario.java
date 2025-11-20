@@ -10,8 +10,8 @@ public class Inventario implements Serializable{
     private HashMap<String, Integer> stock; 
 
     public Inventario() {
-        this.catalogoDeMedicamentos = Stock.getMedicamentos();
         Stock.crearMedicamentos();
+        this.catalogoDeMedicamentos = Stock.getMedicamentos();
         Stock.crearStock();
         this.stock = Stock.getStock();
     }

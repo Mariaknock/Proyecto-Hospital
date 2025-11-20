@@ -78,7 +78,7 @@ public class GestorPaciente {
     public static void rellenarExpediente(ArrayList<Paciente> pacientes, String[] vacunas, String[] previas, String[] medicamentos, String[] heredables, String[] alergias){
         for(Paciente paciente : pacientes){
             int contador = (int)(Math.random()*10);
-            for(int i= 0; i<= contador; i++){
+            for(int i= 0; i< contador; i++){
                 double probabilidad = Math.random();
                 if (probabilidad >= 0.3){
                     paciente.getExpedienteMedico().agregarVacuna(vacunas[i]);
@@ -130,8 +130,6 @@ public class GestorPaciente {
 
     public static void main(String[] args) {
         System.out.println("=== GENERANDO Y GUARDANDO PACIENTES ===");
-        generarPacientes();
-        guardarEnArchivo();
         pacientes = cargarDesdeArchivo();
         for(Paciente paciente : pacientes){
             System.out.println(paciente);

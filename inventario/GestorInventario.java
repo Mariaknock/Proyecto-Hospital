@@ -91,7 +91,7 @@ public class GestorInventario {
         guardarEnArchivo();
         cargarDesdeArchivo();
         verInventario();
-    } */
+    }*/
 
 
 }
