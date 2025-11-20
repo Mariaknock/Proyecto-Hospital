@@ -5,13 +5,16 @@ public class Empleado {
     private int idEmpleado;
     private String area;
     private String turno;
+    private int contraseña;
+
     
-    public Empleado(int idEmpleado, String nombre, String apellido, String area,String turno){
+    public Empleado(int idEmpleado, String nombre, String apellido, String area,String turno, int contraseña){
         this.idEmpleado=idEmpleado;
         this.nombre= nombre;
         this.apellido= apellido;
         this.area= area;
         this.turno=turno;
+        this.contraseña=contraseña;
     }
 
 
@@ -63,6 +66,13 @@ public class Empleado {
         this.turno=turno;
     }
 
+    public void setContraseña(int contraseña){
+        this.contraseña=contraseña;
+    }
+
+    public int getContraseña(){
+        return contraseña;
+    }
 
 
 

@@ -1,8 +1,15 @@
 package menus;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import empleado.Empleado;
+import empleado.Enfermera;
+import empleado.Medico;
+import empleado.Recepcionista;
+
 public class MenuAdmin {
+    private ArrayList<Empleado> listaEmpleados = new ArrayList<>();
     Scanner scanner= new Scanner(System.in);
     int opcion;
 
@@ -13,24 +20,20 @@ public class MenuAdmin {
        
         do{
             System.out.println("1) Registrar nuevo empleado");
-            System.out.println("2) Eliminar empleados");
-            System.out.println("3) Ver reportes existentes");
-            System.out.println("4) Cerrar Sesion");
+            System.out.println("2) Listar empleados");
+            System.out.println("3) Cerrar Sesion");
 
             try {
                 opcion = scanner.nextInt();
                 switch(opcion){
 
                     case 1:
-                        //registrarempleados();
+                        registrarEmpleado();
                         break;
                     case 2:
-                        //eliminarempleado();
+                      listarEmpleados();
                         break;
                     case 3:
-                        //verreportes();
-                        break;
-                    case 4:
                         System.out.println("Cerrando la sesion de administrador");
                         break;
                     default:
@@ -43,7 +46,82 @@ public class MenuAdmin {
             }
 
 
-        }while(opcion!=6);
+        }while(opcion!=3);
     }
+
+    private void registrarEmpleado() {
+        System.out.println("Ingresa los datos que se solicitan");
+        try {
+            System.out.println("ID: ");
+            int id = scanner.nextInt();
+            System.out.println("Nombre: ");
+            String nombre = scanner.nextLine();
+            System.out.println("Apellido: ");
+            String apellido = scanner.nextLine();
+            System.out.println("Area: ");
+            String area = scanner.nextLine();
+            System.out.println("Turno: ");
+            String turno = scanner.nextLine();
+            System.out.println("Asigna una Contraseña (4 digitos): ");
+            int contraseña = scanner.nextInt(); 
+
+            System.out.println("Selecciona Cargo:");
+            System.out.println("1) Medico");
+            System.out.println("2) Enfermera");
+            System.out.println("3) Recepcionista");
+            int tipo = scanner.nextInt();
+
+            Empleado nuevo;
+
+            switch (tipo) {
+                case 1: 
+                    Medico m = new Medico(id, nombre, apellido, area, turno, contraseña);
+                    System.out.print("Cedula: "); 
+                    String cedula= scanner.nextLine();
+                    m.setCedula(cedula);
+                    System.out.print("Especialidad: ");
+                    String especialidad=scanner.nextLine();
+                    m.setEspecialidad(especialidad);
+                    System.out.print("Consultorio: "); 
+                    int consultorio=scanner.nextInt();
+                    m.setConsultorio(consultorio);
+                    nuevo = m;
+                    break;
+                case 2:
+                    nuevo = new Enfermera(id, nombre, apellido, area, turno, contraseña);
+                    break;
+                case 3:
+                    nuevo = new Recepcionista(id, nombre, apellido, area, turno, contraseña);
+                    break;
+                default:
+                    System.out.println("Cargo inexistente");
+                    return;
+            }
+
+            if (nuevo != null) {
+                listaEmpleados.add(nuevo);
+                System.out.println("Empleado registrado");
+            }
+
+        } catch (NumberFormatException e) {
+            System.out.println("Debes ingresar un numero");
+        }
+    }
+
+
+
+    private void listarEmpleados() {
+
+        if (listaEmpleados.isEmpty()) {
+            System.out.println("Sin registro de empleados");
+        }
+
+        for (Empleado empleado : listaEmpleados) {
+            empleado.mostrarInformacion();
+        }
+    }
+
+
+
     
 }

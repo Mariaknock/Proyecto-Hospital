@@ -1,8 +1,8 @@
 package empleado;
 public class Recepcionista extends Empleado {
 
-    public Recepcionista (int idEmpleado,String nombre,String apellido,String area,String turno){
-        super(idEmpleado,nombre,apellido,area,turno);
+    public Recepcionista (int idEmpleado,String nombre,String apellido,String area,String turno,int contraseña){
+        super(idEmpleado,nombre,apellido,area,turno,contraseña);
     }
 
     public void agendarCita(){
