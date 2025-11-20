@@ -130,7 +130,8 @@ public class GestorPaciente {
 
     public static void main(String[] args) {
         System.out.println("=== GENERANDO Y GUARDANDO PACIENTES ===");
-
+        generarPacientes();
+        guardarEnArchivo();
         pacientes = cargarDesdeArchivo();
         for(Paciente paciente : pacientes){
             System.out.println(paciente);
