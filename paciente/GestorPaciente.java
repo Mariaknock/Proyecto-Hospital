@@ -111,7 +111,6 @@ public class GestorPaciente {
 
     @SuppressWarnings("unchecked")
     public static ArrayList<Paciente> cargarDesdeArchivo() {
-        ArrayList<Paciente> pacientes = null;
         
         try (ObjectInputStream ois = new ObjectInputStream(
                 new FileInputStream(archivoBinario))) {
@@ -122,6 +121,8 @@ public class GestorPaciente {
         } catch (IOException | ClassNotFoundException e) {
             System.err.println("Error al cargar: " + e.getMessage());
             pacientes = new ArrayList<>();
+            generarPacientes();
+            guardarEnArchivo();
         }
         
         return pacientes;

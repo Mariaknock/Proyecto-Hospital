@@ -73,6 +73,7 @@ public class MenuGestionPaciente {
         System.out.print("Teclea 1 para si y 2 para no");
 
         int resp = scanner.nextInt();
+        scanner.nextLine();
         if (resp==1) {
             System.out.println("¿Que medicamento desea resetar?");
             GestorInventario.verInventario();
@@ -85,6 +86,7 @@ public class MenuGestionPaciente {
     }
     
     private void verTratamientos(Paciente paciente){
+
         for(Tratamiento tratamiento : paciente.getTratamientos()){
             System.out.println(tratamiento);
         }
