@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import empleado.Empleado;
-import empleado.Enfermera;
 import empleado.Medico;
 import empleado.Recepcionista;
 

@@ -11,7 +11,7 @@ public class MenuGestionCitas {
     private Scanner scanner;
     
     public MenuGestionCitas(ArrayList<Paciente> pacientes) {
-        this.agenda = new Agenda();
+        this.agenda = new Agenda(pacientes);
         this.pacientes = pacientes;
         this.scanner = new Scanner(System.in);
     }

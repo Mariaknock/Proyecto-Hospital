@@ -1,6 +1,6 @@
 package cita;
 import java.time.LocalTime;
-public class Cita
+public class Cita 
 {
     private String nombrePaciente;
     private Fechamex fecha;

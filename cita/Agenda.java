@@ -3,6 +3,7 @@ import java.time.LocalTime;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+
 import paciente.Paciente;
 
 public class Agenda
@@ -13,12 +14,29 @@ public class Agenda
 
 
 
-    public Agenda()
-    {
-        this.scanner=new Scanner(System.in);
-        this.agenda=new ArrayList<Cita>();
-        
+    public Agenda(ArrayList<Paciente> pacientes) {
+        this.scanner = new Scanner(System.in);
+        this.agenda = new ArrayList<Cita>();
+        cargarCitasDesdePacientes(pacientes);
     }
+
+    public ArrayList<Cita> getCitas()
+    {
+        return agenda;
+    }
+
+    public void cargarCitasDesdePacientes(ArrayList<Paciente> pacientes) {
+        System.out.println("\n=== CARGANDO CITAS EN AGENDA ===");
+        for (Paciente paciente : pacientes) {
+            for (Cita cita : paciente.getCitasPaciente()) {
+                if (!agenda.contains(cita)) {
+                    agenda.add(cita);
+                }
+            }
+        }        
+    }
+
+
 
     public void crearCita(ArrayList<Paciente> pacientes){
         int dia;
@@ -117,6 +135,8 @@ public class Agenda
             //agregar al paciente
             pacienteEncontrado.agregarCitaPaciente(nuevaCita);
             System.out.println("Cita de "+ pacienteEncontrado.getNombre() + " Agregada exitosamente");
+           // GestorPaciente.guardarEnArchivo();
+            //
 
 
         }catch(ConfiguracionInvalida e)
