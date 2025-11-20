@@ -21,7 +21,6 @@ public class GestorEmpleado {
 
     public static ArrayList<Empleado> generarEmpleados() {
         Random random = new Random();
-        listaEmpleados.clear(); 
 
         for (int i = 100; i <= 104; i++) {
 
