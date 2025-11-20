@@ -36,5 +36,6 @@ public class Login {
                 System.out.println("Contraseña incorrecta");
                 break;
         }
+        scanner.close();
     }
 }
