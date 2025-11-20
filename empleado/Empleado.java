@@ -66,11 +66,11 @@ public class Empleado {
         this.turno=turno;
     }
 
-    public void setContraseña(int contraseña){
+    public void setContrasena(int contraseña){
         this.contraseña=contraseña;
     }
 
-    public int getContraseña(){
+    public int getContrasena(){
         return contraseña;
     }
 
