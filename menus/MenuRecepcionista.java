@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import cita.Agenda;
 import paciente.GestorPaciente;
-import habitacion.GestorHabitacion;
+import habitacion.GestorHabitacion; 
 
 
 public class MenuRecepcionista {
