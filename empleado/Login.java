@@ -11,7 +11,7 @@ public class Login {
     
     private static ArrayList<Empleado> empleados;
 
-    public static Empleado iniciarSesion(String nombre, String contrasena) {
+    public static Empleado iniciarSesion(String contrasena) {
 
         
         for (Empleado empleado : empleados) {
@@ -31,13 +31,11 @@ public class Login {
         GestorEmpleado.verEmpleados();
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Introduce tu nombre: ");
-        String nombre = scanner.nextLine();
         System.out.println("Introduce tu contraseña: ");
         String contrasenia = scanner.nextLine();
         
         
-        Empleado empleado = iniciarSesion(nombre, contrasenia);
+        Empleado empleado = iniciarSesion(contrasenia);
 
         if(empleado!=null){
             switch (contrasenia) {
