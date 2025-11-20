@@ -88,6 +88,7 @@ public class Stock {
         }
     }
     public static int verificarStock(String nombre){
-        return stock.get(nombre);
+        Integer cantidad = stock.get(nombre);
+        return (cantidad != null) ? cantidad : 0;
     }
 }

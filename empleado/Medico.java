@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import paciente.Paciente;
 
 public class Medico extends Empleado {
+
     private String cedula;
     private String especialidad;
     private int consultorio;
     private ArrayList<Paciente> pacientesAtendidos;
 
-    public Medico(int idEmpleado, String nombre, String apellido, String area,String turno, int contraseña){
-        super(idEmpleado, nombre, apellido, area, turno,contraseña);
+    public Medico(int idEmpleado, String nombre, String apellido, String area,String turno){
+        super(idEmpleado, nombre, apellido, area, turno);
         this.pacientesAtendidos = new ArrayList<>();
     }
 

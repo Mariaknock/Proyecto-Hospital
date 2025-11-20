@@ -48,8 +48,8 @@ public class Inventario implements Serializable{
         Stock.incrementarStock(nombre, cantidad);
     }
 
-    public int verificarStock(String nombre) {
-        return verificarStock(nombre); 
+    public void verificarStock(String nombre) {
+        Stock.verificarStock(nombre); 
     }
 
     public void despacharMedicamento(String nombre, int cantidadADespachar) {
