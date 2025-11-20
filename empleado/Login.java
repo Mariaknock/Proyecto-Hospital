@@ -1,49 +1,40 @@
 package empleado;
 
-import java.util.ArrayList;
 import java.util.Scanner;
-
+import menus.MenuAdmin;
 import menus.MenuMedico;
+import menus.MenuRecepcionista;
 
 public class Login {
-    
-    private static ArrayList<Empleado> empleados;
 
-    public static Empleado iniciarSesion(String nombre, String contrasena) {
-        for (Empleado empleado : empleados) {
-            if (empleado.getNombre().equalsIgnoreCase(nombre) && 
-                empleado.getContrasena().equals(contrasena)) {
-                System.out.println("Inicio de sesión exitoso");
-                System.out.println("Bienvenido, " + empleado.getArea() + " " + empleado.getNombre() );
-                return empleado;
-            }
-        }
+    public static void login() {
         
-        System.out.println("Nombre o contraseña incorrectos");
-        return null;
-    }
-
-    public static void login(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Introduce tu nombre: ");
-        String nombre = scanner.nextLine();
         System.out.println("Introduce tu contraseña: ");
         String contrasenia = scanner.nextLine();
-        
-        
-        Empleado empleado = iniciarSesion(nombre, contrasenia);
 
-        switch (empleado.getArea()) {
-            case "medico":
+        switch (contrasenia) {
+            case "A7D8M9":
+                System.out.println("Bienvenido Administrador");
+                MenuAdmin menuadm = new MenuAdmin();
+                menuadm.mostrarMenu();
+                break;
+
+            case "M1E2D3":
+                System.out.println("Bienvenido Medico");
                 MenuMedico medmen = new MenuMedico();
                 medmen.mostrarMenu();
                 break;
-            case "recepcionista":
-                
+
+            case "R4E5C6":
+                System.out.println("Bienvenido Recepcionista");
+                MenuRecepcionista recmen = new MenuRecepcionista();
+                recmen.mostrarMenu();
                 break;
-            case "admin":
+
             default:
+                System.out.println("Contraseña incorrecta");
                 break;
         }
-    } 
+    }
 }

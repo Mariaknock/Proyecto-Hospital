@@ -11,7 +11,6 @@ public class MenuMedico {
 
     Scanner scanner= new Scanner(System.in);
     int opcion;
-    private MenuGestionPaciente submenu = new MenuGestionPaciente();
 
 
 
@@ -87,6 +86,7 @@ public class MenuMedico {
             }
             if (pacienteEncontrado != null) {
                 System.out.println("Paciente encontrado: " + pacienteEncontrado.getNombre());
+                MenuGestionPaciente submenu = new MenuGestionPaciente();
                 submenu.mostrarSubMenu(pacienteEncontrado);
                 
             } else {
