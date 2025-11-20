@@ -15,19 +15,21 @@ public class Login {
 
         
         for (Empleado empleado : empleados) {
-            if (empleado.getNombre().equalsIgnoreCase(nombre) && 
-                empleado.getContrasena().equals(contrasena)) {
+            if (empleado.getContrasena().equals(contrasena)) {
                 System.out.println("Inicio de sesion aprobado");
                 System.out.println("Bienvenido  " + empleado.getArea() + " " + empleado.getNombre() );
                 return empleado;
             }
         }
         
-        System.out.println("Nombre o contraseña incorrectos");
+        System.out.println("Contraseña incorrecta");
         return null;
     }
 
     public static void login(){
+
+        GestorEmpleado.verEmpleados();
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Introduce tu nombre: ");
         String nombre = scanner.nextLine();

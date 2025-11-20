@@ -64,9 +64,7 @@ public class MenuAdmin {
             System.out.println("Area: ");
             String area = scanner.nextLine();
             System.out.println("Turno: ");
-            String turno = scanner.nextLine();
-            System.out.println("Asigna una Contraseña (4 digitos): ");
-            int contraseña = scanner.nextInt(); 
+            String turno = scanner.nextLine(); 
 
             System.out.println("Selecciona Cargo:");
             System.out.println("1) Medico");
@@ -77,7 +75,7 @@ public class MenuAdmin {
 
             switch (tipo) {
                 case 1: 
-                    Medico m = new Medico(id, nombre, apellido, area, turno, contraseña);
+                    Medico m = new Medico(id, nombre, apellido, area, turno, "M1E2D3");
                     System.out.print("Cedula: "); 
                     String cedula= scanner.nextLine();
                     m.setCedula(cedula);
@@ -90,7 +88,7 @@ public class MenuAdmin {
                     nuevo = m;
                     break;
                 case 2:
-                    nuevo = new Recepcionista(id, nombre, apellido, area, turno, contraseña);
+                    nuevo = new Recepcionista(id, nombre, apellido, area, turno, "R4E5C6");
                     break;
                 default:
                     System.out.println("Cargo inexistente");
