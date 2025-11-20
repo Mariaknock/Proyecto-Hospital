@@ -3,7 +3,6 @@ package menus;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.ArrayList;
-import cita.Agenda;
 import cita.GestorArchivosCitas;
 import paciente.GestorPaciente;
 import habitacion.GestorHabitacion; 
