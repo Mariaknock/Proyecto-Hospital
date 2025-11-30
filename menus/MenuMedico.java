@@ -26,7 +26,8 @@ public class MenuMedico {
             System.out.println("1) Atender al paciente (Expediente y Tratamientos)");
             System.out.println("2) Ver lista de pacientes");
             System.out.println("3) Consultar medicamentos");
-            System.out.println("4) Cerrar Sesion");
+            System.out.println("4) Eliminar paciente");
+            System.out.println("5) Cerrar Sesion");
 
             try {
                 opcion = scanner.nextInt();
@@ -43,6 +44,9 @@ public class MenuMedico {
                         GestorInventario.verInventario();
                         break;
                     case 4:
+                        eliminarPaciente();
+                        break;
+                    case 5:
                         System.out.println("Cerrando la sesion de Medico");
                         break;
                     default:
@@ -55,7 +59,7 @@ public class MenuMedico {
             }
 
 
-        }while(opcion!=4);
+        }while(opcion!=5);
     }
     
     
@@ -89,6 +93,30 @@ public class MenuMedico {
                 MenuGestionPaciente submenu = new MenuGestionPaciente();
                 submenu.mostrarSubMenu(pacienteEncontrado);
                 
+            } else {
+                System.out.println("No hay ningun paciente con el ID utilizado");
+            }
+
+        } catch (InputMismatchException e) {
+            System.out.println("El ID es un numero");
+        }
+    }
+
+    private void eliminarPaciente() {
+        
+        Paciente pacienteEncontrado=null;
+        System.out.print("Ingrese el ID del paciente: ");
+        try {
+            int id = scanner.nextInt();
+            for (Paciente p : GestorPaciente.getPacientes()) {
+                if (p.getId() == id) {
+                    pacienteEncontrado = p;
+                    break;
+                }
+            }
+            if (pacienteEncontrado != null) {
+                System.out.println("Paciente encontrado: " + pacienteEncontrado.getNombre());
+                GestorPaciente.eliminarPaciente(pacienteEncontrado.getId());                
             } else {
                 System.out.println("No hay ningun paciente con el ID utilizado");
             }

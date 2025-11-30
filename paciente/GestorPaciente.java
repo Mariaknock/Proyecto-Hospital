@@ -194,6 +194,13 @@ public class GestorPaciente {
         }
     }
 
+    public static void eliminarPaciente(int id)
+    {
+        Paciente pacienteEliminar=pacientes.get(id-1);
+        System.out.println("Paciente "+ pacienteEliminar.getNombre()+" eliminado");
+        pacientes.remove(pacienteEliminar);
+        guardarEnArchivo();
 
+    }
 }
 
