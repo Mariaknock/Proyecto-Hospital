@@ -1,8 +1,9 @@
 package cita;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Fechamex {
+public class Fechamex implements Serializable {
     private LocalDate fecha;
     private static final DateTimeFormatter FORMATO = DateTimeFormatter.ofPattern("dd/MM/yy");
 

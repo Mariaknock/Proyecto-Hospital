@@ -1,6 +1,7 @@
 package cita;
+import java.io.Serializable;
 import java.time.LocalTime;
-public class Cita 
+public class Cita implements Serializable
 {
     private String nombrePaciente;
     private Fechamex fecha;
@@ -71,6 +72,14 @@ public class Cita
     public int getIdCita()
     {
         return idCita;
+    }
+
+    public static void setContador(int nuevoValor) {
+        contador = nuevoValor;
+    }
+
+    public static int getContador() {
+        return contador;
     }
 
     @Override
