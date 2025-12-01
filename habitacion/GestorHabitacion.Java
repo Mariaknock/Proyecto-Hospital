@@ -2,6 +2,7 @@ package habitacion;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class GestorHabitacion {
@@ -80,28 +81,47 @@ public class GestorHabitacion {
         int habitacionesOcupadas = 0;
         int habitacionesCompletas = 0;
         
+        List<Habitacion> habitacionesConEspacio = new ArrayList<>();
+        
         for (Habitacion h : habitaciones) {
             totalCamas += h.getCantidadCamas();
             totalOcupadas += h.getAforoActual();
             
             if (h.getAforoActual() == 0) {
                 habitacionesLibres++;
-                System.out.println("Habitación " + h.getNumeroHabitacion() + " libre");
             } else if (h.getAforoActual() == h.getCantidadCamas()) {
                 habitacionesCompletas++;
-            } else{
-                System.out.println("Habitación " + h.getNumeroHabitacion() + " con espacio");
+            } else {
                 habitacionesOcupadas++;
+                habitacionesConEspacio.add(h);
             }
         }
         
-        System.out.println("Total de habitaciones: " + habitaciones.size());
-        System.out.println("Total de camas: " + totalCamas);
-        System.out.println("Camas ocupadas: " + totalOcupadas);
-        System.out.println("Habitaciones libres: " + habitacionesLibres);
-        System.out.println("Habitaciones incompletas: " + habitacionesOcupadas);
-        System.out.println("Habitaciones completas: " + habitacionesCompletas);
-        System.out.printf("Tasa de ocupación: %.2f%%\n", 
-                         (totalOcupadas * 100.0 / totalCamas));
+        double tasaOcupacion = (totalOcupadas * 100.0 / totalCamas);
+        
+        System.out.println("\n ESTADÍSTICAS DE DISPONIBILIDAD");
+        System.out.println("═".repeat(40));
+        
+        System.out.println(" HABITACIONES CON ESPACIO DISPONIBLE:");
+        if (habitacionesConEspacio.isEmpty()) {
+            System.out.println("   No hay habitaciones con espacio disponible");
+        } else {
+            for (Habitacion h : habitacionesConEspacio) {
+                int espacios = h.getCantidadCamas() - h.getAforoActual();
+                System.out.printf("   • Habitación %d: %d espacio(s) libre(s) (%d/%d camas)\n",
+                                h.getNumeroHabitacion(), espacios, 
+                                h.getAforoActual(), h.getCantidadCamas());
+            }
+        }
+        
+        System.out.println("─".repeat(40));
+        
+        // Resumen rápido
+        System.out.printf("RESUMEN:\n");
+        System.out.printf("   • Habitaciones con espacio: %d\n", habitacionesOcupadas);
+        System.out.printf("   • Habitaciones libres: %d\n", habitacionesLibres);
+        System.out.printf("   • Habitaciones completas: %d\n", habitacionesCompletas);
+        System.out.printf("   • Ocupación total: %.1f%%\n", tasaOcupacion);
+        System.out.println("═".repeat(40));
     }
 }
