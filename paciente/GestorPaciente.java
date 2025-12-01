@@ -128,7 +128,7 @@ public class GestorPaciente {
         return pacientes;
     }
 
-/* 
+ /* 
     public static void main(String[] args) {
         System.out.println("=== GENERANDO Y GUARDANDO PACIENTES ===");
         pacientes = cargarDesdeArchivo();
