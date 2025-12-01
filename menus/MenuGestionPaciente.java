@@ -69,8 +69,8 @@ public class MenuGestionPaciente {
         paciente.agregarTratamiento(nuevoTratamiento);
         System.out.println("Tratamiento iniciado");
 
-        System.out.print("¿Desea prescribir medicamentos ahora? ");
-        System.out.print("Teclea 1 para si y 2 para no");
+        System.out.print("¿Desea prescribir medicamentos ahora? \n");
+        System.out.print("Teclea 1 para si y 2 para no ");
 
         int resp = scanner.nextInt();
         scanner.nextLine();

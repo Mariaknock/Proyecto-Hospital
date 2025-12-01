@@ -91,4 +91,10 @@ public class Stock {
         Integer cantidad = stock.get(nombre);
         return (cantidad != null) ? cantidad : 0;
     }
+
+    public static void sincronizarDesdeInventario(Inventario inventario) {
+        stock = inventario.getStock();
+        medicamentos = new ArrayList<>(inventario.getCatalogoDeMedicamentos());
+        System.out.println("Stock sincronizado: " + stock.size() + " medicamentos");
+    }
 }

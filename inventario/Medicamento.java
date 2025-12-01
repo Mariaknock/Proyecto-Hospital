@@ -57,12 +57,13 @@ public class Medicamento implements Serializable {
         this.descripcion = descripcion;
     }
     
-    public void mostrarInformacion(){
-        System.out.println("Nombre " + nombre );
-        System.out.println("Principio activo " + principioActivo );
-        System.out.println("Presemtacion : "+ presentacion);
-        System.err.println("Dosis " + dosis);
-
+    public String toString() {
+        return "┌────────────── MEDICAMENTO ──────────────┐\n" +
+            "│ Nombre: " + nombre + "\n" +
+            "│ Principio activo: " + principioActivo + "\n" +
+            "│ Presentación: " + presentacion + "\n" +
+            "│ Dosis: " + dosis + "\n" +
+            "└─────────────────────────────────────────┘";
     }
 
 

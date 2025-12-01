@@ -12,7 +12,8 @@ public class GestorInventario {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(archivoBinario))) {
             
             inventario = (Inventario) ois.readObject();
-            System.out.println("Inventario cargado desde " + archivoBinario);
+
+            Stock.sincronizarDesdeInventario(inventario);
 
         } catch (FileNotFoundException e) {
             System.err.println("Archivo de inventario no encontrado, se va a crear otro ");
