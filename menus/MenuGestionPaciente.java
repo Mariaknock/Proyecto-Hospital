@@ -2,6 +2,7 @@ package menus;
 
 import java.time.LocalDate;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 import inventario.GestorInventario;
 import paciente.GestorPaciente;
@@ -23,7 +24,8 @@ public class MenuGestionPaciente {
             System.out.println("2) Añadir alergia");
             System.out.println("3) Ver tratamientos");
             System.out.println("4) Iniciar tratamiento");
-            System.out.println("5) Volver al menu principal ");
+            System.out.println("5) Finalizar tratamiento");
+            System.out.println("6) Volver al menu principal ");
             System.out.print("Seleccione una opcion: ");
 
             try {
@@ -48,6 +50,9 @@ public class MenuGestionPaciente {
                         iniciarTratamiento(paciente);
                         break;
                     case 5:
+                        finalizarTratamiento(paciente);
+                        break;
+                    case 6:
                         System.out.println("Volviendooo \n");
                         break;
                     default:
@@ -57,7 +62,7 @@ public class MenuGestionPaciente {
                 System.out.println("Error, no es un numero ");
                 scanner.nextLine();
             }
-        } while (opcion != 5);
+        } while (opcion != 6);
     }
 
     private void iniciarTratamiento(Paciente paciente) {
@@ -89,6 +94,45 @@ public class MenuGestionPaciente {
 
         for(Tratamiento tratamiento : paciente.getTratamientos()){
             System.out.println(tratamiento);
+        }
+    }
+
+    private void finalizarTratamiento(Paciente paciente) {
+        List<Tratamiento> lista = paciente.getTratamientos();
+
+        if (lista.isEmpty()) {
+            System.out.println("No hay tratamientos para finalizar");
+            return;
+        }
+
+        System.out.println("Seleccione el tratamiento a finalizar");
+        for (int i = 0; i < lista.size(); i++) {
+            Tratamiento t = lista.get(i);
+            System.out.println((i + 1) + ") " + t.getDiagnostico() + " [" + t.getEstado() + "]");
+        }
+        System.out.println("0) Cancelar");
+
+        System.out.print("Seleccione el numero: ");
+        try {
+            int indice = scanner.nextInt();
+            scanner.nextLine(); 
+
+            if (indice == 0) return;
+
+            if (indice > 0 && indice <= lista.size()) {
+                Tratamiento tratamientoSeleccionado = lista.get(indice - 1);
+                
+                tratamientoSeleccionado.actualizarFechaDeFin(LocalDate.now());
+                tratamientoSeleccionado.marcarComoCompletado();
+                
+                GestorPaciente.guardarEnArchivo();
+                System.out.println("El tratamiento ha sido actualizado correctamente.");
+            } else {
+                System.out.println("Numero no valido");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Debes ingresar un numero entero");
+            scanner.nextLine();
         }
     }
 }
