@@ -86,7 +86,7 @@ public class Tratamiento implements Serializable{
         
         sb.append("Tratamiento - ").append(diagnostico).append("\n");
         sb.append("  Periodo: ").append(fechaDeInicio);
-        sb.append(" hasta ").append(fechaDeFin).append("\n");
+        sb.append(" Hasta ").append(fechaDeFin).append("\n");
         sb.append("  Estado: ").append(estado).append("\n");
         sb.append("  Medicamentos: ").append(medicamentosPrescritos.size()).append(" prescritos\n");
         

@@ -77,15 +77,13 @@ public class ExpedienteClinico implements Serializable{
         this.medicamentosPrescritos.add(medicamento);
     }
 
-
-
     public String toString() {
-        return "ExpedienteClinico{" +
-                "\nhistorialVacunas=" + historialVacunas +
-                ", \nantecedentesFamiliares=" + antecedentesFamiliares +
-                ", \nenfermedadesPrevias=" + enfermedadesPrevias +
-                ", \nalergias=" + alergias +
-                ", \nmedicamentosPrescritos=" + medicamentosPrescritos +
-                '}';
+        return "┌────────────────── EXPEDIENTE CLÍNICO ──────────────────┐\n" +
+            "│ Vacunas:           " + historialVacunas + "\n" +
+            "│ Antecedentes:      " + antecedentesFamiliares + "\n" +
+            "│ Enfermedades:      " + enfermedadesPrevias + "\n" +
+            "│ Alergias:          " + alergias + "\n" +
+            "│ Medicamentos:      " + medicamentosPrescritos + "\n" +
+            "└────────────────────────────────────────────────────────┘";
     }
 }

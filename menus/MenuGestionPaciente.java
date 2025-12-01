@@ -18,12 +18,12 @@ public class MenuGestionPaciente {
 
         int opcion = 0;
         do {
-            System.out.println("Estas viendo al paciente  " + paciente.getNombre() + " con ID: " + paciente.getId() );
+            System.out.println("\nEstas viendo al paciente  " + paciente.getNombre() + " con ID: " + paciente.getId() );
             System.out.println("1) Ver expediente");
             System.out.println("2) Añadir alergia");
             System.out.println("3) Ver tratamientos");
-            System.out.println("4. Iniciar tratamiento");
-            System.out.println("5. Volver al menu principal ");
+            System.out.println("4) Iniciar tratamiento");
+            System.out.println("5) Volver al menu principal ");
             System.out.print("Seleccione una opcion: ");
 
             try {
@@ -62,7 +62,7 @@ public class MenuGestionPaciente {
 
     private void iniciarTratamiento(Paciente paciente) {
 
-        System.out.print("Ingrese el diagnostico: ");
+        System.out.print("\nIngrese el diagnostico: ");
         String diagnostico = scanner.nextLine();
 
         Tratamiento nuevoTratamiento = new Tratamiento(diagnostico, LocalDate.now());
@@ -75,7 +75,7 @@ public class MenuGestionPaciente {
         int resp = scanner.nextInt();
         scanner.nextLine();
         if (resp==1) {
-            System.out.println("¿Que medicamento desea resetar?");
+            System.out.println("¿Que medicamento desea recetar?");
             GestorInventario.verInventario();
             String medPreescrito=scanner.nextLine();
             GestorInventario.prescribirMedicamento(medPreescrito, nuevoTratamiento); 
