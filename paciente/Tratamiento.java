@@ -92,7 +92,7 @@ public class Tratamiento implements Serializable{
         
         for (Medicamento medicamento : medicamentosPrescritos) {
             if (medicamento != null) {
-                sb.append("    * ").append(medicamento.toString()).append("\n");
+                sb.append("").append(medicamento.toString()).append("\n");
             }
         }
         

@@ -53,7 +53,6 @@ public class GestorHabitacion {
                 new FileInputStream(archivoBinario))) {
             
             habitaciones = (ArrayList<Habitacion>) ois.readObject();
-            System.out.println(habitaciones.size() + " habitaciones cargadas");
             
         } catch (IOException | ClassNotFoundException e) {
             System.err.println("Error al cargar: " + e.getMessage());

@@ -73,7 +73,6 @@ public class GestorEmpleado {
             
             empleados = (ArrayList<Empleado>) ois.readObject();
             listaEmpleados = empleados;
-            System.out.println(empleados.size() + " empleados cargados desde archivo.");
             
         } catch (IOException | ClassNotFoundException e) {
             System.err.println("No se pudo cargar el archivo: " + e.getMessage());

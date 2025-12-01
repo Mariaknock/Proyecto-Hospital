@@ -19,7 +19,7 @@ public class MenuMedico {
         GestorInventario.cargarDesdeArchivo();
 
 
-        System.out.println("Viendo ahora: Menu de Medico ");
+        System.out.println("\nViendo ahora: Menu de Medico ");
         System.out.println("¡Bienvenido! ¿Que opcion deseas realizar hoy?");
        
         do{
@@ -79,7 +79,7 @@ public class MenuMedico {
     private void seleccionarYAtenderPaciente() {
         
         Paciente pacienteEncontrado=null;
-        System.out.print("Ingrese el ID del paciente: ");
+        System.out.print("\nIngrese el ID del paciente: ");
         try {
             int id = scanner.nextInt();
             for (Paciente p : GestorPaciente.getPacientes()) {
@@ -105,7 +105,7 @@ public class MenuMedico {
     private void eliminarPaciente() {
         
         Paciente pacienteEncontrado=null;
-        System.out.print("Ingrese el ID del paciente: ");
+        System.out.print("\nIngrese el ID del paciente: ");
         try {
             int id = scanner.nextInt();
             for (Paciente p : GestorPaciente.getPacientes()) {

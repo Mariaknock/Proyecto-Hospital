@@ -116,7 +116,6 @@ public class GestorPaciente {
                 new FileInputStream(archivoBinario))) {
             
             pacientes = (ArrayList<Paciente>) ois.readObject();
-            System.out.println(pacientes.size() + " pacientes cargados");
             
         } catch (IOException | ClassNotFoundException e) {
             System.err.println("Error al cargar: " + e.getMessage());

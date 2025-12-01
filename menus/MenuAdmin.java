@@ -19,7 +19,7 @@ public class MenuAdmin {
         GestorEmpleado.cargarDesdeArchivo();
 
         listaEmpleados = GestorEmpleado.getListaEmpleados();
-        System.out.println("Viendo ahora: Menu de administrador ");
+        System.out.println("\nViendo ahora: Menu de administrador ");
         System.out.println("¡Bienvenido! ¿Que opcion deseas realizar hoy?");
        
         do{
@@ -60,7 +60,7 @@ public class MenuAdmin {
     }
 
     private void registrarEmpleado() {
-        System.out.println("Ingresa los datos que se solicitan");
+        System.out.println("\nIngresa los datos que se solicitan");
         try {
             System.out.println("ID: ");
             int id = scanner.nextInt();
