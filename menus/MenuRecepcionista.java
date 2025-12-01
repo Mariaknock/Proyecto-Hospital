@@ -19,10 +19,9 @@ public class MenuRecepcionista {
         GestorPaciente.cargarDesdeArchivo();
         GestorHabitacion.cargarDesdeArchivo();
 
-        System.out.println("\n Viendo ahora: Menu de Recepcionista ");
-        System.out.println("¡Bienvenido! ¿Que opcion deseas realizar hoy?");
        
         do{
+            System.out.println("¡Bienvenido! ¿Que opcion deseas realizar hoy?");
             System.out.println("1) Registrar paciente");
             System.out.println("2) Gestionar citas");
             System.out.println("3) Cerrar Sesion");
@@ -58,10 +57,5 @@ public class MenuRecepcionista {
 
         }while(opcion!=3);
 
-        System.out.println("Adios :D");
-        scanner.close();
     }
-    
-    
-    
 }

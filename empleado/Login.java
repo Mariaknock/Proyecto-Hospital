@@ -1,5 +1,6 @@
 package empleado;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import menus.MenuAdmin;
 import menus.MenuMedico;
@@ -16,15 +17,14 @@ public class Login{
             System.out.println("=====================================");
             System.out.println("1. Iniciar Sesión");
             System.out.println("2. Salir del Sistema");
-            System.out.print("Seleccione una opción: "); 
-            if (scanner.hasNextInt()) {
+            System.out.print("Seleccione una opción: ");
+            try{
                 opcionMenu = scanner.nextInt();
-            } else {
-                System.out.println("\nEntrada inválida. Por favor, ingrese un número.");
                 scanner.nextLine();
-                continue;
+            } catch(InputMismatchException exe)
+            {
+                System.out.println("Opción no válida. Por favor, ingrese 1 o 2.");
             }
-            scanner.nextLine();
             switch (opcionMenu) {
                 case 1:
                     System.out.println("\n--- INICIO DE SESIÓN ---");

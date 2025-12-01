@@ -19,7 +19,6 @@ public class MenuAdmin {
         GestorEmpleado.cargarDesdeArchivo();
 
         listaEmpleados = GestorEmpleado.getListaEmpleados();
-        System.out.println("\nViendo ahora: Menu de administrador ");
         System.out.println("¡Bienvenido! ¿Que opcion deseas realizar hoy?");
        
         do{

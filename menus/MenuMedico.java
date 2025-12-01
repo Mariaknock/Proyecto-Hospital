@@ -19,10 +19,9 @@ public class MenuMedico {
         GestorInventario.cargarDesdeArchivo();
 
 
-        System.out.println("\nViendo ahora: Menu de Medico ");
-        System.out.println("¡Bienvenido! ¿Que opcion deseas realizar hoy?");
        
         do{
+            System.out.println("¡Bienvenido! ¿Que opcion deseas realizar hoy?");
             System.out.println("1) Atender al paciente (Expediente y Tratamientos)");
             System.out.println("2) Ver lista de pacientes");
             System.out.println("3) Consultar medicamentos");

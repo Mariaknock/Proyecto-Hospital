@@ -50,7 +50,7 @@ public class MenuGestionCitas {
                         buscarCitaPorNombre();
                         break;
                     case 6:
-                        System.out.println("Saliendo del sistema...");
+                        System.out.println("Salio del gestor de citas\n");
                         break;
                     default:
                         System.out.println("Opcion no valida. Por favor selecciona 1-6.");
