@@ -1,4 +1,3 @@
-package menus;
 import empleado.Login;
 
 public class Hospital {

@@ -60,7 +60,7 @@ public class MenuRecepcionista {
             }
 
 
-        }while(opcion!=3);
+        }while(opcion!=4);
 
     }
 }
