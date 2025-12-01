@@ -11,18 +11,34 @@ public class Agenda
 {
     private Scanner scanner;
     private ArrayList<Cita> agenda;
+    private ArrayList<Paciente> pacientes; 
+
 
 
 
     public Agenda(ArrayList<Paciente> pacientes) {
         this.scanner = new Scanner(System.in);
         this.agenda = new ArrayList<Cita>();
+        this.pacientes = pacientes; 
+        inicializarContadorCitas(pacientes);
         cargarCitasDesdePacientes(pacientes);
     }
 
     public ArrayList<Cita> getCitas()
     {
         return agenda;
+    }
+
+    public void guardarCambios() {
+    try (java.io.ObjectOutputStream oos = new java.io.ObjectOutputStream(
+            new java.io.FileOutputStream("pacientes.dat"))) {
+        
+        oos.writeObject(pacientes);
+        System.out.println("Cambios guardados automáticamente");
+        
+    } catch (java.io.IOException e) {
+        System.err.println("Error al guardar: " + e.getMessage());
+    }
     }
 
     public void cargarCitasDesdePacientes(ArrayList<Paciente> pacientes) {
@@ -131,6 +147,7 @@ public class Agenda
             //agregar al paciente
             pacienteEncontrado.agregarCitaPaciente(nuevaCita);
             System.out.println("Cita de "+ pacienteEncontrado.getNombre() + " Agregada exitosamente");
+            guardarCambios();
 
 
         }catch(ConfiguracionInvalida e)
@@ -140,6 +157,7 @@ public class Agenda
         }catch(InputMismatchException e2)
         {
             System.out.println("Error de usuario, no se permiten agregar letras en los campos numericos");
+            scanner.nextLine();
         }
     
     }
@@ -217,6 +235,7 @@ public class Agenda
                     }
                     modificacionCita.setNombrePaciente(nombrePaciente);
                     System.out.println("Nombre actualizado correctamente");
+                    guardarCambios();
                     break;
                     
                 case 2:
@@ -242,7 +261,7 @@ public class Agenda
                     Fechamex nuevaFecha= new Fechamex(dia, mes, año);
                     modificacionCita.setFecha(nuevaFecha);
                     System.out.println("Fecha actualizada correctamente");
-                    
+                    guardarCambios();
                     break;
                     
                 case 3:
@@ -251,7 +270,7 @@ public class Agenda
                     horas = scanner.nextInt();
                     System.out.print("Minutos (0-59): ");
                     minutos = scanner.nextInt();
-                    scanner.nextLine(); 
+                    scanner.nextLine();
                     
                     if (horas < 0 || horas > 23) {
                         throw new ConfiguracionInvalida("Hora debe estar entre 0-23");
@@ -262,6 +281,7 @@ public class Agenda
                     LocalTime nuevaHora=LocalTime.of(horas, minutos);
                     modificacionCita.setHora(nuevaHora);
                     System.out.println("Hora actualizada correctamente");
+                    guardarCambios(); 
                     break;
                     
                 case 4:
@@ -274,6 +294,7 @@ public class Agenda
                     }
                     modificacionCita.setPrecio(precio);
                     System.out.println("Precio actualizado correctamente");
+                    guardarCambios();
                     break;
                     
                 default:
@@ -286,6 +307,7 @@ public class Agenda
         }catch(InputMismatchException e2)
         {
             System.out.println("Error de usuario, no se permiten agregar letras en los campos numericos");
+            scanner.nextLine();
         }
     }
 
@@ -337,6 +359,8 @@ public class Agenda
                 System.out.println("Cita eliminada del paciente pero no encontrada en agenda");
             }
 
+            guardarCambios();
+
         }catch(ConfiguracionInvalida e)
         {
             System.out.println("Error de configuracion."+ e.getMessage());
@@ -344,6 +368,7 @@ public class Agenda
         }catch(InputMismatchException e2)
         {
             System.out.println("Error de usuario, no se permiten agregar letras en los campos numericos");
+            scanner.nextLine();
         }
 
     }
@@ -392,6 +417,22 @@ public class Agenda
                 }
             }
         return null;
+    }
+
+    public void inicializarContadorCitas(ArrayList<Paciente> pacientes) {
+        int maxId = 0;        
+        for (Paciente paciente : pacientes) {
+            for (Cita cita : paciente.getCitasPaciente()) {
+                if (cita.getIdCita() > maxId) {
+                    maxId = cita.getIdCita();
+                }
+            }
+        }
+        if (maxId > 0) {
+            Cita.setContador(maxId + 1);
+        } else {
+            System.out.println("No hay citas existentes, contador en: " + Cita.getContador());
+        }
     }
     
     
