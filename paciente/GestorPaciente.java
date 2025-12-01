@@ -147,7 +147,6 @@ public class GestorPaciente {
 
         System.out.println("Ingresa el nombre del paciente: ");
         String nombre=scanner.nextLine();
-        scanner.nextLine();
         System.out.println("Ingresa la edad: ");
         int edad=scanner.nextInt();
         scanner.nextLine();
