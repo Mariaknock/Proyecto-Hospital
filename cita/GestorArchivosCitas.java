@@ -51,7 +51,6 @@ public class GestorArchivosCitas {
         }
     }
     
-    System.out.println("Se crearon " + citasCreadas + " citas para " + pacientesProcesados + " pacientes sin citas");
     
     if (citasCreadas > 0) {
         // Guardar la lista modificada directamente
