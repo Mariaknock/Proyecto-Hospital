@@ -24,7 +24,8 @@ public class MenuRecepcionista {
             System.out.println("¡Bienvenido! ¿Que opcion deseas realizar hoy?");
             System.out.println("1) Registrar paciente");
             System.out.println("2) Gestionar citas");
-            System.out.println("3) Cerrar Sesion");
+            System.out.println("3) Ocupacion de habitaciones");
+            System.out.println("4) Cerrar Sesion");
 
             try {
                 opcion = scanner.nextInt();
@@ -41,6 +42,10 @@ public class MenuRecepcionista {
                         menuGestionCitas.mostrarMenuPrincipal();
                         break;
                     case 3:
+                        GestorHabitacion.cargarDesdeArchivo();
+                        GestorHabitacion.mostrarEstadisticas();
+                        break;
+                    case 4:
                         System.out.println("Cerrando la sesion de Recepcionista");
                         break;
                     default:
