@@ -89,7 +89,7 @@ public class Cita implements Serializable
         +"Nombre del paciente: " + getNombrePaciente()+"\n"
         +"Fecha: " +getFecha()+"\n"
         +"Hora: "+ getHora() + "\n"
-        +"Precio: "+getPrecio()+" pesos mexicanos" + "\n"
+        + "Precio: " + String.format("%.2f", getPrecio()) + " pesos mexicanos" + "\n"
         +"ID del paciente: "+ getIdPaciente()+"\n"
         +"ID de la cita: "+ getIdCita()+"\n";
 
