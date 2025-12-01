@@ -15,19 +15,19 @@ public class Login {
 
         switch (contrasenia) {
             case "A7D8M9":
-                System.out.println("Bienvenido Administrador");
+                System.out.println("\n Bienvenido Administrador \n");
                 MenuAdmin menuadm = new MenuAdmin();
                 menuadm.mostrarMenu();
                 break;
 
             case "M1E2D3":
-                System.out.println("Bienvenido Medico");
+                System.out.println("\nBienvenido Medico \n");
                 MenuMedico medmen = new MenuMedico();
                 medmen.mostrarMenu();
                 break;
 
             case "R4E5C6":
-                System.out.println("Bienvenido Recepcionista");
+                System.out.println("\nBienvenido Recepcionista \n");
                 MenuRecepcionista recmen = new MenuRecepcionista();
                 recmen.mostrarMenu();
                 break;

@@ -24,7 +24,6 @@ public class GestorArchivosCitas {
              new FileInputStream(nombreArchivo))) {
             
             pacientes = (ArrayList<Paciente>) ois.readObject();
-            System.out.println("Pacientes leidos: " + pacientes.size());
             
         } catch (FileNotFoundException e) {
             System.out.println("Archivo no encontrado: " + nombreArchivo);

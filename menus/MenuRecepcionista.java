@@ -19,7 +19,7 @@ public class MenuRecepcionista {
         GestorPaciente.cargarDesdeArchivo();
         GestorHabitacion.cargarDesdeArchivo();
 
-        System.out.println("Viendo ahora: Menu de Recepcionista ");
+        System.out.println("\n Viendo ahora: Menu de Recepcionista ");
         System.out.println("¡Bienvenido! ¿Que opcion deseas realizar hoy?");
        
         do{

@@ -48,7 +48,7 @@ public class MenuGestionPaciente {
                         iniciarTratamiento(paciente);
                         break;
                     case 5:
-                        System.out.println("Volviendooo");
+                        System.out.println("Volviendooo \n");
                         break;
                     default:
                         System.out.println("Opcion no valida, escoge otra");
@@ -82,7 +82,7 @@ public class MenuGestionPaciente {
         }
         
         GestorPaciente.guardarEnArchivo(); 
-        System.out.println("Tratamiento guardado en el expediente");
+        System.out.println("Tratamiento guardado en el expediente \n");
     }
     
     private void verTratamientos(Paciente paciente){
